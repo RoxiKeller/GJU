@@ -9,7 +9,7 @@ public class WindSkillCheck : MonoBehaviour
 
     [Header("UI Elements")]
     public RectTransform pointer;
-    public RectTransform bar;
+    public RectTransform playArea;
 
     [Header("Zones")]
     public RectTransform perfectZone;
@@ -59,44 +59,49 @@ public class WindSkillCheck : MonoBehaviour
 
     void RandomizePerfectZone()
     {
-        float barWidth = bar.rect.width;
+        float areaHalfWidth = playArea.rect.width / 2f;
+        float zoneHalfWidth = perfectZone.rect.width / 2f;
 
-        float minX = -barWidth / 2f + zonePadding;
-        float maxX = barWidth / 2f - zonePadding;
+        float minX = -areaHalfWidth + zoneHalfWidth;
+        float maxX = areaHalfWidth - zoneHalfWidth;
 
         float randomX = Random.Range(minX, maxX);
 
-        Vector2 newPos = perfectZone.anchoredPosition;
-        newPos.x = randomX;
+        Vector2 pos = perfectZone.anchoredPosition;
+        pos.x = randomX;
 
-        perfectZone.anchoredPosition = newPos;
+        perfectZone.anchoredPosition = pos;
     }
 
     void MovePointer()
     {
-        float step = speed * Time.deltaTime;
+        float step = speed * Time.deltaTime * 200f;
 
-        Vector3 pos = pointer.localPosition;
+        Vector2 pos = pointer.anchoredPosition;
 
         if (movingRight)
-            pos.x += step * 200f;
+            pos.x += step;
         else
-            pos.x -= step * 200f;
+            pos.x -= step;
 
-        float halfWidth = bar.rect.width / 2f;
+        float areaHalfWidth = playArea.rect.width / 2f;
+        float pointerHalfWidth = pointer.rect.width / 2f;
 
-        if (pos.x > halfWidth)
+        float minX = -areaHalfWidth + pointerHalfWidth;
+        float maxX = areaHalfWidth - pointerHalfWidth;
+
+        if (pos.x > maxX)
         {
-            pos.x = halfWidth;
+            pos.x = maxX;
             movingRight = false;
         }
-        else if (pos.x < -halfWidth)
+        else if (pos.x < minX)
         {
-            pos.x = -halfWidth;
+            pos.x = minX;
             movingRight = true;
         }
 
-        pointer.localPosition = pos;
+        pointer.anchoredPosition = pos;
     }
 
     void CheckResult()
