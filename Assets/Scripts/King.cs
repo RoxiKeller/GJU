@@ -28,8 +28,6 @@ public class King : MonoBehaviour
     public float blinkScale = 0.9f;
     public float blinkTimer = 0f;
 
-    public NPC npc;
-
     void OnEnable() { Wind.OnWindHit += ApplyWind; }
     void OnDisable() { Wind.OnWindHit -= ApplyWind; }
 
@@ -40,45 +38,41 @@ public class King : MonoBehaviour
         ApplyTilt();
     }
 
-    public void OnBlinkButton() // Call this from your UI Button's OnClick()
+    public void OnBlinkButton() 
     {
         float timeSinceLast = Time.time - lastBlinkTime;
 
-        // 1. Detect Spamming
         if (timeSinceLast < 0.3f) 
         {
-            // If they mash the button, notify the NPC immediately
-            if (npc != null) npc.StartInspection("His eyes are twitching!");
-            SuspicionSystem.Instance.AddSuspicion(10f);
+            // Just let the NPC comment, don't punish the bar as much
+            SuspicionSystem.Instance.AddSuspicion(2f); // Lowered from 10f
         }
 
-        // 2. Trigger the actual blink
         Blink(); 
     }
 
     public void Blink()
     {
         OnBlinkEvent?.Invoke();
-        
-        // Calculate how long it's been since the last blink
+
         float timeSinceLastBlink = Time.time - lastBlinkTime;
 
-        // If the interval is too short, the king looks glitchy/suspicious
+        // Only add a tiny bit of suspicion if they blink faster than the safe interval
         if (timeSinceLastBlink < safeBlinkInterval)
         {
-            float penaltyMultiplier = 1f / (timeSinceLastBlink + 0.1f); // Higher penalty for faster mashing
-            SuspicionSystem.Instance.AddSuspicion(spamPenalty * penaltyMultiplier * Time.deltaTime);
-            Debug.Log("Blinking too fast! Suspicion rising.");
+            // Use a flat, small value instead of a multiplier
+            // Example: adds just 1% or 2% suspicion per "fast" blink
+            float gentlePenalty = 2f; 
+            
+            if (SuspicionSystem.Instance != null)
+            {
+                SuspicionSystem.Instance.AddSuspicion(gentlePenalty);
+            }
         }
 
+        // Reset timers and visuals
         blinkTimer = 0f;
         lastBlinkTime = Time.time;
-
-        // TELL THE NPC WE BLINKED
-        if (npc != null)
-        {
-            npc.OnKingBlink();
-        }
 
         StopAllCoroutines();
         StartCoroutine(BlinkRoutine());

@@ -106,11 +106,15 @@ public class WindSkillCheck : MonoBehaviour
 
     void CheckResult()
     {
-        float pointerX = pointer.position.x;
-        float zoneX = perfectZone.position.x;
-        float zoneWidth = perfectZone.rect.width / 2f;
+        // Use anchoredPosition.x to stay in the UI's local coordinate system
+        float pointerX = pointer.anchoredPosition.x;
+        float zoneX = perfectZone.anchoredPosition.x;
+        
+        // We need to know how far the "hit box" extends from the center of the zone
+        float zoneHalfWidth = perfectZone.rect.width / 2f;
 
-        if (Mathf.Abs(pointerX - zoneX) <= zoneWidth)
+        // Check if the distance between the two is less than half the zone's width
+        if (Mathf.Abs(pointerX - zoneX) <= zoneHalfWidth)
         {
             Debug.Log("PERFECT / GOOD HIT");
             Success();

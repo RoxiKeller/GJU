@@ -4,17 +4,21 @@ using System.Collections;
 
 public class NPC : MonoBehaviour
 {
-    [Header("References")]
+    [Header("Base NPC Settings")]
     public King king;
     public GameObject speechBubble;
     public TextMeshProUGUI dialogueText;
+    public float displayDuration = 3f;
 
     [Header("Movement")]
     public Transform inspectionPoint;
     public float walkSpeed = 2f;
+    public float stoppingDistance = 5f;
 
-    [Header("Talking")]
-    public float displayDuration = 3f;
+    [Header("Suspicion Settings")]
+    public float maxWaitTimeBeforeSuspicion = 3f;
+    public float suspicionRate = 5f;
+    protected float currentInspectionTimer;
 
     protected Vector3 startPosition;
     protected bool isInspecting;
@@ -24,13 +28,48 @@ public class NPC : MonoBehaviour
     protected virtual void Start()
     {
         startPosition = transform.position;
-        if (speechBubble != null)
-            speechBubble.SetActive(false);
+        if (speechBubble != null) speechBubble.SetActive(false);
     }
 
     protected virtual void Update()
     {
         HandleMovement();
+        HandleSuspicionTimer();
+    }
+
+    protected void HandleSuspicionTimer()
+    {
+        if (isInspecting && HasReachedTarget())
+        {
+            currentInspectionTimer += Time.deltaTime;
+
+            if (currentInspectionTimer > maxWaitTimeBeforeSuspicion)
+            {
+                // Only bark/shout if we haven't already started this phase
+                if (currentReason != "Angry") 
+                {
+                    OnSuspicionThresholdReached();
+                }
+                SuspicionSystem.Instance.AddSuspicion(suspicionRate * Time.deltaTime);
+            }
+        }
+        else
+        {
+            currentInspectionTimer = 0f;
+        }
+    }
+
+    // New helper to check if NPC is at their spot
+    protected bool HasReachedTarget()
+    {
+        return Vector3.Distance(transform.position, inspectionPoint.position) <= stoppingDistance + 0.1f;
+    }
+
+    // Allow child classes to define their own "Angry" shout
+    protected virtual void OnSuspicionThresholdReached()
+    {
+        currentReason = "Angry";
+        Say("Something is wrong here...");
     }
 
     protected virtual void OnEnable()
@@ -46,11 +85,28 @@ public class NPC : MonoBehaviour
     protected void HandleMovement()
     {
         Vector3 target = isInspecting ? inspectionPoint.position : startPosition;
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            target,
-            walkSpeed * Time.deltaTime
-        );
+        
+        // Calculate the distance to the target
+        float distanceToTarget = Vector3.Distance(transform.position, target);
+
+        // If we are inspecting, stop at stoppingDistance. 
+        // If we are returning home, go all the way (stoppingDistance = 0 for home).
+        float currentStoppingDistance = isInspecting ? stoppingDistance : 0.05f;
+
+        if (distanceToTarget > currentStoppingDistance)
+        {
+            // Calculate a direction vector toward the target
+            Vector3 direction = (target - transform.position).normalized;
+            
+            // Calculate where the NPC actually wants to stop
+            Vector3 stoppingPoint = target - (direction * currentStoppingDistance);
+
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                stoppingPoint,
+                walkSpeed * Time.deltaTime
+            );
+        }
     }
 
     public virtual void StartInspection(string reason)
@@ -67,6 +123,7 @@ public class NPC : MonoBehaviour
     {
         isInspecting = false;
         currentReason = "";
+        currentInspectionTimer = 0f; // Reset the "standing still" timer!
         Say(message);
     }
 
