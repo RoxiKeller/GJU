@@ -1539,7 +1539,7 @@ MonoBehaviour:
   visiblePosition: {x: 0, y: -5, z: 0}
   moveSpeed: 5
   activeDuration: 5
-  dog: {fileID: 0}
+  dog: {fileID: 494497167}
 --- !u!1 &754020365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,16 +1965,16 @@ RectTransform:
   m_GameObject: {fileID: 1214658966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 614181457}
   m_Father: {fileID: 1733915108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 757, y: 269}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 785, y: 180}
+  m_SizeDelta: {x: 699, y: 689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214658968
 MonoBehaviour:
@@ -1995,7 +1995,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2005,9 +2005,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 480123cc5ab0cf64f856065a7166ec68, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 2e26d112e4e06204e92ee4dc7ee8ead3, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 480123cc5ab0cf64f856065a7166ec68, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2052,8 +2052,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 480123cc5ab0cf64f856065a7166ec68, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -111,11 +111,13 @@ public class NPC : MonoBehaviour
 
     public virtual void StartInspection(string reason)
     {
-        if (isInspecting) return;
+        // If they are already inspecting the King for blinking, 
+        // don't let the meat-throwing distract them from their suspicion.
+        if (isInspecting && (currentReason.Contains("blink") || currentReason == "Angry")) 
+            return;
 
         isInspecting = true;
         currentReason = reason;
-
         Say(reason);
     }
 

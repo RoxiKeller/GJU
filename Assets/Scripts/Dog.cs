@@ -80,4 +80,17 @@ public class Dog : NPC
             distracted = false;
         }
     }
+
+    public bool IsInspectingKing()
+    {
+        // The dog is only "active" if it is inspecting AND has reached the king
+        return isInspecting && HasReachedTarget();
+    }
+
+    public bool IsMovingToOrInspectingKing()
+    {
+        // If the dog's 'isInspecting' is true, it means it is either
+        // walking toward the King or already there growling.
+        return isInspecting && !distracted;
+    }
 }

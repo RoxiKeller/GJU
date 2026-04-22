@@ -19,13 +19,38 @@ public class Meat : MonoBehaviour
 
     public void ShowMeat()
     {
+        if (isActive) return;
+
+        // The "Safe" condition: The dog is either already sniffing 
+        // OR it is currently walking toward the King to sniff.
+        bool dogIsCurrentlyAThreat = (dog != null && dog.IsMovingToOrInspectingKing());
+
+        if (!dogIsCurrentlyAThreat)
+        {
+            // 1. Penalty for throwing meat for no reason
+            SuspicionSystem.Instance.AddSuspicion(15f);
+            
+            // 2. Alert all NPCs to investigate the weird behavior
+            NPC[] allNPCs = UnityEngine.Object.FindObjectsByType<NPC>(FindObjectsSortMode.None);
+            foreach (NPC npc in allNPCs)
+            {
+                npc.StartInspection("What was that noise? Is that... meat?");
+                StartCoroutine(DismissNPCAfterDelay(npc, 4f));
+            }
+        }
+
+        // Normal meat logic follows
         StopAllCoroutines();
         isActive = true;
-        
-        // Tells the dog to come running
         if (dog != null) dog.Distract();
-
         StartCoroutine(MeatSequence());
+    }
+
+    // A simple timer to send the "Witnesses" back home
+    private IEnumerator DismissNPCAfterDelay(NPC npc, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (npc != null) npc.EndInspection("How unkingly...");
     }
 
     private IEnumerator MeatSequence()
