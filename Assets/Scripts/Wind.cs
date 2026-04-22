@@ -12,6 +12,9 @@ public class Wind : MonoBehaviour
     public float minForce = 10f;
     public float maxForce = 40f;
 
+    [Header("Wind Visual")]
+    public GameObject windVisual; // assign animated sprite child here
+
     private float timer;
 
     // Event: sends wind force to anything listening
@@ -22,6 +25,9 @@ public class Wind : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        if (windVisual != null)
+            windVisual.SetActive(false);
     }
 
     void Start()
@@ -39,12 +45,12 @@ public class Wind : MonoBehaviour
 
             if (isSkillCheckActive)
             {
-                // During skill check: keep pressure high
+                // while player is handling the skill check,
+                // keep wind pressure active with shorter gusts
                 timer = UnityEngine.Random.Range(0.8f, 2f);
             }
             else
             {
-                // Normal pacing
                 SetNextWind();
             }
         }
@@ -53,12 +59,21 @@ public class Wind : MonoBehaviour
     public void OnSkillCheckStart()
     {
         isSkillCheckActive = true;
+
+        // 🌬 keep wind visible during the whole skill check
+        if (windVisual != null)
+            windVisual.SetActive(true);
     }
 
     public void OnSkillCheckEnd()
     {
         isSkillCheckActive = false;
-        SetNextWind(); // restore normal pacing cleanly
+
+        // 🌬 hide wind only after the player finishes
+        if (windVisual != null)
+            windVisual.SetActive(false);
+
+        SetNextWind(); // restore normal pacing
     }
 
     void TriggerWind()
@@ -66,6 +81,10 @@ public class Wind : MonoBehaviour
         float force = UnityEngine.Random.Range(minForce, maxForce);
 
         Debug.Log("🌬 Wind triggered: " + force);
+
+        // make sure visual appears immediately
+        if (windVisual != null)
+            windVisual.SetActive(true);
 
         OnWindHit?.Invoke(force);
     }

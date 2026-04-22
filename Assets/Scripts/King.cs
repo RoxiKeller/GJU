@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class King : MonoBehaviour
 {
+    public System.Action OnBlinkEvent;
+
     [Header("Stability")]
     public float stability = 100f;
     public float maxStability = 100f;
@@ -56,6 +58,8 @@ public class King : MonoBehaviour
 
     public void Blink()
     {
+        OnBlinkEvent?.Invoke();
+        
         // Calculate how long it's been since the last blink
         float timeSinceLastBlink = Time.time - lastBlinkTime;
 

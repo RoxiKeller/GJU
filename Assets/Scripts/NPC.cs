@@ -1,84 +1,85 @@
 using UnityEngine;
-using TMPro; // Ensure you have TextMeshPro installed
+using TMPro;
 using System.Collections;
 
 public class NPC : MonoBehaviour
 {
     [Header("References")]
     public King king;
-    public GameObject speechBubble; 
+    public GameObject speechBubble;
     public TextMeshProUGUI dialogueText;
 
-    [Header("Movement Settings")]
-    public Transform inspectionPoint; 
+    [Header("Movement")]
+    public Transform inspectionPoint;
     public float walkSpeed = 2f;
-    public float noticeThreshold = 6f; 
 
-    [Header("Talking Settings")]
+    [Header("Talking")]
     public float displayDuration = 3f;
 
-    private Vector3 startPosition;
-    private bool isInspecting = false;
-    private string currentReason = "";
-    private Coroutine dialogueCoroutine;
+    protected Vector3 startPosition;
+    protected bool isInspecting;
+    protected string currentReason;
+    protected Coroutine dialogueCoroutine;
 
-    void Start()
+    protected virtual void Start()
     {
         startPosition = transform.position;
-        if (speechBubble != null) speechBubble.SetActive(false);
+        if (speechBubble != null)
+            speechBubble.SetActive(false);
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        // 1. Logic to START moving toward the King
-        if (!isInspecting)
-        {
-            if (king.blinkTimer > noticeThreshold)
-            {
-                StartInspection("He's not blinking...");
-            }
-        }
-
-        // 2. Handle Movement
-        Vector3 target = isInspecting ? inspectionPoint.position : startPosition;
-        transform.position = Vector3.MoveTowards(transform.position, target, walkSpeed * Time.deltaTime);
-
-        // 3. Logic to LEAVE
-        if (isInspecting && currentReason == "His eyes are twitching!" && king.blinkTimer > 2f)
-        {
-            EndInspection("Must have been the wind.");
-        }
+        HandleMovement();
     }
 
-    public void StartInspection(string reason)
+    protected virtual void OnEnable()
+    {
+        king.OnBlinkEvent += OnKingBlink;
+    }
+
+    protected virtual void OnDisable()
+    {
+        king.OnBlinkEvent -= OnKingBlink;
+    }
+
+    protected void HandleMovement()
+    {
+        Vector3 target = isInspecting ? inspectionPoint.position : startPosition;
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            target,
+            walkSpeed * Time.deltaTime
+        );
+    }
+
+    public virtual void StartInspection(string reason)
     {
         if (isInspecting) return;
+
         isInspecting = true;
         currentReason = reason;
 
-        if (reason == "He's not blinking...") Say("Is the King... okay?");
-        else Say("His eyes are twitching!");
+        Say(reason);
     }
 
-    public void OnKingBlink()
-    {
-        if (isInspecting && currentReason == "He's not blinking...")
-        {
-            EndInspection("Oh, he's fine.");
-        }
-    }
-
-    void EndInspection(string partingWords)
+    public virtual void EndInspection(string message)
     {
         isInspecting = false;
         currentReason = "";
-        Say(partingWords);
+        Say(message);
     }
 
-    // --- Talking Logic ---
+    public virtual void OnKingBlink()
+    {
+        // overridden by child classes
+    }
+
     public void Say(string message)
     {
-        if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+        if (dialogueCoroutine != null)
+            StopCoroutine(dialogueCoroutine);
+
         dialogueCoroutine = StartCoroutine(ShowText(message));
     }
 
@@ -86,7 +87,9 @@ public class NPC : MonoBehaviour
     {
         speechBubble.SetActive(true);
         dialogueText.text = message;
+
         yield return new WaitForSeconds(displayDuration);
+
         speechBubble.SetActive(false);
     }
 }
