@@ -1,40 +1,39 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required to reload the game
-using UnityEngine.UI; // Required if you want to reference the Button via code
+using UnityEngine.SceneManagement;
 
 public class LoseUI : MonoBehaviour
 {
-    [Header("UI Panel")]
-    public GameObject losePanel; // Drag your Lose Panel (the parent object) here
+    // The Singleton instance
+    public static LoseUI Instance;
+
+    public GameObject losePanel;
 
     void Awake()
     {
-        // Ensure the lose screen is hidden when the game starts
-        if (losePanel != null)
-        {
-            losePanel.SetActive(false);
+        // Set up the Singleton
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+            return;
         }
+
+        // Hide the panel at the start
+        if (losePanel != null) losePanel.SetActive(false);
     }
 
-    // Call this method from your SuspicionSystem when the bar hits 100%
     public void ShowLoseScreen()
     {
-        if (losePanel != null)
-        {
-            losePanel.SetActive(true);
-            
-            // Optional: Pause the game time so everything stops moving
-            Time.timeScale = 0f; 
-        }
+        // We turn on the panel, and if the script's object is off, turn it on too
+        if (losePanel != null) losePanel.SetActive(true);
+        
+        gameObject.SetActive(true);
+        Time.timeScale = 0f; // Freeze game
     }
 
-    // Link this to your Restart Button's "OnClick" event in the Inspector
     public void RestartGame()
     {
-        // Resume time before restarting!
-        Time.timeScale = 1f; 
-
-        // Reloads the currently active scene
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

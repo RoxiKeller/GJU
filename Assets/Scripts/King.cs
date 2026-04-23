@@ -12,21 +12,21 @@ public class King : MonoBehaviour
     public float maxTilt = 15f;
     public float tiltRecoverySpeed = 2f;
 
-    [Header("Blink Suspicion")]
-    [Tooltip("How fast the player can blink naturally (seconds)")]
+    [Header("Blink Settings")]
     public float safeBlinkInterval = 2.0f; 
-    [Tooltip("Suspicion added if blinking too fast")]
-    public float spamPenalty = 10f;
     public float lastBlinkTime;
+    public float blinkTimer = 0f;
 
     private float currentTilt;
     public WindSkillCheck skillCheck;
     private bool isChecking = false;
 
-    public SpriteRenderer sr;
-    public float blinkDuration = 0.1f;
-    public float blinkScale = 0.9f;
-    public float blinkTimer = 0f;
+    [Header("Animations")]
+    public Animator kingAnimator;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip blinkSound;
 
     void OnEnable() { Wind.OnWindHit += ApplyWind; }
     void OnDisable() { Wind.OnWindHit -= ApplyWind; }
@@ -40,56 +40,41 @@ public class King : MonoBehaviour
 
     public void OnBlinkButton() 
     {
-        float timeSinceLast = Time.time - lastBlinkTime;
-
-        if (timeSinceLast < 0.3f) 
+        // 1. Play the Sound
+        if (audioSource != null && blinkSound != null)
         {
-            // Just let the NPC comment, don't punish the bar as much
-            SuspicionSystem.Instance.AddSuspicion(2f); // Lowered from 10f
+            // Randomize pitch slightly (e.g., between 0.9 and 1.1)
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(blinkSound);
         }
 
-        Blink(); 
+        // 2. Tell the Animator to play the blink
+        if (kingAnimator != null)
+        {
+            kingAnimator.SetTrigger("BlinkTrigger");
+        }
+
+        // 3. Logic and Suspicion
+        BlinkLogic(); 
     }
 
-    public void Blink()
+    private void BlinkLogic()
     {
         OnBlinkEvent?.Invoke();
 
         float timeSinceLastBlink = Time.time - lastBlinkTime;
 
-        // Only add a tiny bit of suspicion if they blink faster than the safe interval
-        if (timeSinceLastBlink < safeBlinkInterval)
+        if (timeSinceLastBlink < 0.3f) 
         {
-            // Use a flat, small value instead of a multiplier
-            // Example: adds just 1% or 2% suspicion per "fast" blink
-            float gentlePenalty = 2f; 
-            
-            if (SuspicionSystem.Instance != null)
-            {
-                SuspicionSystem.Instance.AddSuspicion(gentlePenalty);
-            }
+            SuspicionSystem.Instance.AddSuspicion(2f);
+        }
+        else if (timeSinceLastBlink < safeBlinkInterval)
+        {
+            SuspicionSystem.Instance.AddSuspicion(2f);
         }
 
-        // Reset timers and visuals
         blinkTimer = 0f;
         lastBlinkTime = Time.time;
-
-        StopAllCoroutines();
-        StartCoroutine(BlinkRoutine());
-    }
-
-    System.Collections.IEnumerator BlinkRoutine()
-    {
-        Vector3 originalScale = transform.localScale;
-        Color originalColor = sr.color;
-
-        transform.localScale = originalScale * blinkScale;
-        sr.color = Color.gray;
-
-        yield return new WaitForSeconds(blinkDuration);
-
-        transform.localScale = originalScale;
-        sr.color = originalColor;
     }
 
     void ApplyWind(float force)

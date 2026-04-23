@@ -1,0 +1,962 @@
+fileFormatVersion: 2
+guid: 2101e64dce5f2d24c9df4fe1308febdb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8978248798612107722
+    second: king_blink_0
+  - first:
+      213: -3155765658984610777
+    second: king_blink_1
+  - first:
+      213: -8782200637604787539
+    second: king_blink_2
+  - first:
+      213: -241105930640132607
+    second: king_blink_3
+  - first:
+      213: -279537727894986512
+    second: king_blink_4
+  - first:
+      213: 3311585983408582528
+    second: king_blink_5
+  - first:
+      213: 9187373893512441903
+    second: king_blink_6
+  - first:
+      213: 8508136245416855073
+    second: king_blink_7
+  - first:
+      213: -1854753923215666038
+    second: king_blink_8
+  - first:
+      213: -5505362899840952778
+    second: king_blink_9
+  - first:
+      213: -7704680121473151235
+    second: king_blink_10
+  - first:
+      213: -2869852222094999909
+    second: king_blink_11
+  - first:
+      213: -6376223999670357612
+    second: king_blink_12
+  - first:
+      213: 1761381609422004526
+    second: king_blink_13
+  - first:
+      213: 4250883737027933543
+    second: king_blink_14
+  - first:
+      213: 7630637640559783167
+    second: king_blink_15
+  - first:
+      213: 1182050560803242270
+    second: king_blink_16
+  - first:
+      213: -2033695161749098646
+    second: king_blink_17
+  - first:
+      213: -5366241746699948409
+    second: king_blink_18
+  - first:
+      213: 1637604187526836660
+    second: king_blink_19
+  - first:
+      213: 2320998072036881321
+    second: king_blink_20
+  - first:
+      213: -6401794625464859178
+    second: king_blink_21
+  - first:
+      213: -8354151010724657790
+    second: king_blink_22
+  - first:
+      213: -7539080911349841091
+    second: king_blink_23
+  - first:
+      213: -4629658638836110542
+    second: king_blink_24
+  - first:
+      213: 2517016228475082059
+    second: king_blink_25
+  - first:
+      213: -1159235962796257944
+    second: king_blink_26
+  - first:
+      213: -7353348882338960764
+    second: king_blink_27
+  - first:
+      213: 6937903939437698157
+    second: king_blink_28
+  - first:
+      213: -4666772720704926113
+    second: king_blink_29
+  - first:
+      213: -4072568388663729109
+    second: king_blink_30
+  - first:
+      213: -4399998233035729458
+    second: king_blink_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: king_blink_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6480
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ec5a5594ad66380800000000000000
+      internalID: -8978248798612107722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_1
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 6480
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72488d56ad77434d0800000000000000
+      internalID: -3155765658984610777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_2
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 6480
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa8b59dc0b5f1680800000000000000
+      internalID: -8782200637604787539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_3
+      rect:
+        serializedVersion: 2
+        x: 4860
+        y: 6480
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10674fafe6b67acf0800000000000000
+      internalID: -241105930640132607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_4
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 6480
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0ef73eae1ee1cf0800000000000000
+      internalID: -279537727894986512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5400
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f2b3808ed15fd20800000000000000
+      internalID: 3311585983408582528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_6
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 5400
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20b18d11eb108f70800000000000000
+      internalID: 9187373893512441903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_7
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 5400
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12682b056d8f21670800000000000000
+      internalID: 8508136245416855073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_8
+      rect:
+        serializedVersion: 2
+        x: 4860
+        y: 5400
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a84d7fc32279246e0800000000000000
+      internalID: -1854753923215666038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_9
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 5400
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6369d5b7c950993b0800000000000000
+      internalID: -5505362899840952778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4320
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfe449b204a731590800000000000000
+      internalID: -7704680121473151235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_11
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 4320
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9e7920fb9c3c28d0800000000000000
+      internalID: -2869852222094999909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_12
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 4320
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491f3531e0a1387a0800000000000000
+      internalID: -6376223999670357612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_13
+      rect:
+        serializedVersion: 2
+        x: 4860
+        y: 4320
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e212187dd3fa17810800000000000000
+      internalID: 1761381609422004526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_14
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 4320
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765f8079c3c2efa30800000000000000
+      internalID: 4250883737027933543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc6a47518875e960800000000000000
+      internalID: 7630637640559783167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_16
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 3240
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e118a37e8bc776010800000000000000
+      internalID: 1182050560803242270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_17
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 3240
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6fa38e760dd6c3e0800000000000000
+      internalID: -2033695161749098646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_18
+      rect:
+        serializedVersion: 2
+        x: 4860
+        y: 3240
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ee31d10974785b0800000000000000
+      internalID: -5366241746699948409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_19
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 3240
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b1ba380550f9b610800000000000000
+      internalID: 1637604187526836660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a3ff180377d53020800000000000000
+      internalID: 2320998072036881321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_21
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 2160
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d58920d4b14827a0800000000000000
+      internalID: -6401794625464859178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_22
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 2160
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28549cdfae7101c80800000000000000
+      internalID: -8354151010724657790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_23
+      rect:
+        serializedVersion: 2
+        x: 4860
+        y: 2160
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33801adaddcf5790800000000000000
+      internalID: -7539080911349841091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_24
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 2160
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bead83ff520cfb0800000000000000
+      internalID: -4629658638836110542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4596209cec3ee220800000000000000
+      internalID: 2517016228475082059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_26
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1080
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86dcba2a80199efe0800000000000000
+      internalID: -1159235962796257944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_27
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 1080
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48aaba6b628a3f990800000000000000
+      internalID: -7353348882338960764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_28
+      rect:
+        serializedVersion: 2
+        x: 4860
+        y: 1080
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c97f3dfd2684060800000000000000
+      internalID: 6937903939437698157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_29
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 1080
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e46e6afea4c3fb0800000000000000
+      internalID: -4666772720704926113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b24a63eb0a45b77c0800000000000000
+      internalID: -4072568388663729109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king_blink_31
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 0
+        width: 1620
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec51f835be010f2c0800000000000000
+      internalID: -4399998233035729458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4d6e02137d71381418911f0604e907a6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      king_blink_0: -8978248798612107722
+      king_blink_1: -3155765658984610777
+      king_blink_10: -7704680121473151235
+      king_blink_11: -2869852222094999909
+      king_blink_12: -6376223999670357612
+      king_blink_13: 1761381609422004526
+      king_blink_14: 4250883737027933543
+      king_blink_15: 7630637640559783167
+      king_blink_16: 1182050560803242270
+      king_blink_17: -2033695161749098646
+      king_blink_18: -5366241746699948409
+      king_blink_19: 1637604187526836660
+      king_blink_2: -8782200637604787539
+      king_blink_20: 2320998072036881321
+      king_blink_21: -6401794625464859178
+      king_blink_22: -8354151010724657790
+      king_blink_23: -7539080911349841091
+      king_blink_24: -4629658638836110542
+      king_blink_25: 2517016228475082059
+      king_blink_26: -1159235962796257944
+      king_blink_27: -7353348882338960764
+      king_blink_28: 6937903939437698157
+      king_blink_29: -4666772720704926113
+      king_blink_3: -241105930640132607
+      king_blink_30: -4072568388663729109
+      king_blink_31: -4399998233035729458
+      king_blink_4: -279537727894986512
+      king_blink_5: 3311585983408582528
+      king_blink_6: 9187373893512441903
+      king_blink_7: 8508136245416855073
+      king_blink_8: -1854753923215666038
+      king_blink_9: -5505362899840952778
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

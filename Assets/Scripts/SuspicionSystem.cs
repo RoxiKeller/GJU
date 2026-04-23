@@ -40,10 +40,22 @@ public class SuspicionSystem : MonoBehaviour
 
     void GameOver()
     {
-        // Make the King's sprite fall over or turn red
-        king.GetComponent<SpriteRenderer>().color = Color.red;
-        
-        // Then show the UI
-        Object.FindAnyObjectByType<LoseUI>().ShowLoseScreen();
+        Debug.Log("👑 THE LIE HAS BEEN EXPOSED");
+
+        if (king != null)
+        {
+            SpriteRenderer sr = king.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.color = Color.red;
+        }
+
+        // Call the Singleton directly
+        if (LoseUI.Instance != null)
+        {
+            LoseUI.Instance.ShowLoseScreen();
+        }
+        else
+        {
+            Debug.LogError("LoseUI Instance is null! Is the script on an object in the scene?");
+        }
     }
 }

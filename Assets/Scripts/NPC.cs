@@ -25,16 +25,36 @@ public class NPC : MonoBehaviour
     protected string currentReason;
     protected Coroutine dialogueCoroutine;
 
+    [Header("Random Spawning Area")]
+    public BoxCollider2D spawnArea;
+
     protected virtual void Start()
     {
+        if (spawnArea != null)
+        {
+            transform.position = GetRandomPointInBounds(spawnArea.bounds);
+        }
+
         startPosition = transform.position;
         if (speechBubble != null) speechBubble.SetActive(false);
+
+        // Inside Start()
+        walkSpeed = Random.Range(1.5f, 3.5f);
     }
 
     protected virtual void Update()
     {
         HandleMovement();
         HandleSuspicionTimer();
+    }
+
+    private Vector3 GetRandomPointInBounds(Bounds bounds)
+    {
+        return new Vector3(
+            Random.Range(bounds.min.x, bounds.max.x),
+            Random.Range(bounds.min.y, bounds.max.y),
+            transform.position.z // Keep the NPC's original Z depth
+        );
     }
 
     protected void HandleSuspicionTimer()
