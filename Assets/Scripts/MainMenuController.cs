@@ -17,7 +17,7 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Intro");
     }
     
     public void OpenSettings()
@@ -80,7 +80,5 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
-
-        EditorApplication.isPlaying = false;
     }
 }

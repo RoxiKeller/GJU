@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SuspicionSystem : MonoBehaviour
 {
+    public King king;
+
     public static SuspicionSystem Instance;
 
     [Header("Suspicion")]
@@ -38,7 +40,10 @@ public class SuspicionSystem : MonoBehaviour
 
     void GameOver()
     {
-        Debug.Log("👑 THE LIE HAS BEEN EXPOSED");
-        // trigger scene reset / death screen
+        // Make the King's sprite fall over or turn red
+        king.GetComponent<SpriteRenderer>().color = Color.red;
+        
+        // Then show the UI
+        Object.FindAnyObjectByType<LoseUI>().ShowLoseScreen();
     }
 }

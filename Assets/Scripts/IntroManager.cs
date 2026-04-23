@@ -13,7 +13,7 @@ public class IntroManager : MonoBehaviour
     public string nextSceneName = "GameScene";
 
     [Header("Timing")]
-    public float textDelay = 2.5f;
+    public float textDelay = 3f;
     public float fadeSpeed = 2.5f;
 
     private string[] lines =
