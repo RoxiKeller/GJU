@@ -67,6 +67,11 @@ public class WindSkillCheck : MonoBehaviour
 
         float randomX = Random.Range(minX, maxX);
 
+        // Shrink the zone based on difficulty (e.g., up to 50% smaller)
+        float mult = SuspicionSystem.Instance.currentDifficultyMult;
+        float scaleFactor = Mathf.Clamp(1.5f - (mult * 0.5f), 0.5f, 1f); 
+        perfectZone.localScale = new Vector3(scaleFactor, 1, 1);
+
         Vector2 pos = perfectZone.anchoredPosition;
         pos.x = randomX;
 
@@ -128,13 +133,12 @@ public class WindSkillCheck : MonoBehaviour
 
     void Success()
     {
-        Debug.Log("SUCCESS");
-
-        SuspicionSystem.Instance.ReduceSuspicion(2f);
+        // The harder the game gets, the more "relief" a success gives
+        float relief = 3f * SuspicionSystem.Instance.currentDifficultyMult;
+        SuspicionSystem.Instance.ReduceSuspicion(relief);
 
         StopCheck();
         gameObject.SetActive(false);
-
         OnCheckFinished?.Invoke();
     }
 

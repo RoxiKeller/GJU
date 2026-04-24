@@ -63,9 +63,12 @@ public class NPC : MonoBehaviour
         {
             currentInspectionTimer += Time.deltaTime;
 
-            if (currentInspectionTimer > maxWaitTimeBeforeSuspicion)
+            // --- SCALE NPC PATIENCE ---
+            float mult = SuspicionSystem.Instance.currentDifficultyMult;
+            float dynamicPatience = maxWaitTimeBeforeSuspicion / mult;
+
+            if (currentInspectionTimer > dynamicPatience)
             {
-                // Only bark/shout if we haven't already started this phase
                 if (currentReason != "Angry") 
                 {
                     OnSuspicionThresholdReached();
@@ -145,8 +148,15 @@ public class NPC : MonoBehaviour
     {
         isInspecting = false;
         currentReason = "";
-        currentInspectionTimer = 0f; // Reset the "standing still" timer!
+        currentInspectionTimer = 0f;
         Say(message);
+
+        // --- ADD THIS LINE ---
+        // Every time they leave, they "pick" a new place to vanish to/come from next time
+        if (spawnArea != null)
+        {
+            startPosition = GetRandomPointInBounds(spawnArea.bounds);
+        }
     }
 
     public virtual void OnKingBlink()
@@ -170,5 +180,13 @@ public class NPC : MonoBehaviour
         yield return new WaitForSeconds(displayDuration);
 
         speechBubble.SetActive(false);
+    }
+
+    // Inside NPC.cs
+    public bool IsInspectingKing()
+    {
+        // They are a threat if they are currently in the "Inspecting" state 
+        // AND they have actually reached their spot to start watching.
+        return isInspecting && HasReachedTarget();
     }
 }

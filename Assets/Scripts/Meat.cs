@@ -34,6 +34,11 @@ public class Meat : MonoBehaviour
                 StartCoroutine(DismissNPCAfterDelay(npc, 4f));
             }
         }
+        else
+        {
+            // Reward for reacting correctly to the dog!
+            SuspicionSystem.Instance.ReduceSuspicion(3f); 
+        }
 
         StopAllCoroutines();
         StartCoroutine(SingleAnimationSequence());

@@ -64,7 +64,9 @@ public class Dog : NPC
 
     private void DetermineNextInspectionTime()
     {
-        nextInspectionTimer = Random.Range(minWaitTime, maxWaitTime);
+        float mult = SuspicionSystem.Instance.currentDifficultyMult;
+        // As the game gets harder, the dog comes back significantly faster
+        nextInspectionTimer = Random.Range(minWaitTime, maxWaitTime) / mult;
     }
 
     void MoveToMeat()

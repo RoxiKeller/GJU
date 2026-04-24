@@ -31,6 +31,13 @@ public class King : MonoBehaviour
     void OnEnable() { Wind.OnWindHit += ApplyWind; }
     void OnDisable() { Wind.OnWindHit -= ApplyWind; }
 
+    void Start()
+    {
+        // Set the last blink to 2 seconds (or more) BEFORE the game started.
+        // This makes the very first blink "safe."
+        lastBlinkTime = -safeBlinkInterval;
+    }
+
     void Update()
     {
         blinkTimer += Time.deltaTime;
@@ -66,15 +73,22 @@ public class King : MonoBehaviour
 
         if (timeSinceLastBlink < 0.3f) 
         {
+            // PANIC BLINK
             SuspicionSystem.Instance.AddSuspicion(2f);
         }
         else if (timeSinceLastBlink < safeBlinkInterval)
         {
+            // TOO SOON
             SuspicionSystem.Instance.AddSuspicion(2f);
         }
+        else 
+        {
+            // PERFECTLY CALM
+            SuspicionSystem.Instance.ReduceSuspicion(1f); 
+        }
 
-        blinkTimer = 0f;
         lastBlinkTime = Time.time;
+        blinkTimer = 0f;
     }
 
     void ApplyWind(float force)

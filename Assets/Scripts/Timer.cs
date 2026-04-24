@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement; // To restart or go to a Win Screen
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance; 
     [Header("Time Settings")]
     public float timeRemaining = 120f; // 2 minutes to survive
     private bool timerIsRunning = false;
@@ -25,6 +26,11 @@ public class Timer : MonoBehaviour
     public Wind windScript;
     public Dog dogScript; // Or whatever your Dog script is named
     public Storyteller storytellerScript;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {

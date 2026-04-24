@@ -10,16 +10,14 @@ public class LoseUI : MonoBehaviour
 
     void Awake()
     {
-        // Set up the Singleton
-        if (Instance == null) {
-            Instance = this;
-        } else {
-            Destroy(gameObject);
-            return;
-        }
+        // Simply set the instance to this one every time the scene loads
+        Instance = this;
 
-        // Hide the panel at the start
         if (losePanel != null) losePanel.SetActive(false);
+        
+        // Ensure time is moving! 
+        // Sometimes another script might have set it to 0 before the scene reloaded.
+        Time.timeScale = 1f; 
     }
 
     public void ShowLoseScreen()
@@ -33,7 +31,14 @@ public class LoseUI : MonoBehaviour
 
     public void RestartGame()
     {
+        // 1. Unfreeze first
         Time.timeScale = 1f;
+        
+        // 2. Clear any static events (Crucial!)
+        // If your King.cs uses "OnBlinkEvent", you must clear those listeners
+        // or they will try to talk to objects that were destroyed in the old scene.
+        
+        // 3. Reload
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

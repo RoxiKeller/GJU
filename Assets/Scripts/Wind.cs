@@ -91,6 +91,14 @@ public class Wind : MonoBehaviour
 
     void SetNextWind()
     {
-        timer = UnityEngine.Random.Range(minInterval, maxInterval);
+        float mult = SuspicionSystem.Instance.currentDifficultyMult;
+        timer = UnityEngine.Random.Range(minInterval, maxInterval) / mult;
+    }
+
+    // Add this inside the Wind class
+    public bool IsWindActive()
+    {
+        // The wind is a "threat" as long as the skill check is on screen
+        return isSkillCheckActive;
     }
 }

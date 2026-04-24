@@ -58,7 +58,10 @@ public class Storyteller : NPC
         {
             currentStory = storyPool[Random.Range(0, storyPool.Length)];
             listeningTimer = timeToListen; 
-            currentGraceTimer = gracePeriod; // Start the free-time clock!
+
+            // --- SCALE GRACE PERIOD ---
+            float mult = SuspicionSystem.Instance.currentDifficultyMult;
+            currentGraceTimer = gracePeriod / mult; 
             
             base.StartInspection(currentStory.storyText);
         }
@@ -90,12 +93,20 @@ public class Storyteller : NPC
             SuspicionSystem.Instance.AddSuspicion(15f); 
         }
 
+        if (faceSlot != null && faceSlot.currentlyEquippedMask == currentStory.requiredMask)
+        {
+            farewell = "Ah, your Majesty truly understands me!";
+            SuspicionSystem.Instance.ReduceSuspicion(10f); // Big reward for a job well done!
+        }
+
         EndInspection(farewell);
         SetRandomArrivalTimer();
     }
 
     void SetRandomArrivalTimer()
     {
-        nextArrivalTimer = Random.Range(minTimeBetweenStories, maxTimeBetweenStories);
+        // If mult is 1.0, wait is normal. If mult is 2.0, wait is halved!
+        float mult = SuspicionSystem.Instance.currentDifficultyMult;
+        nextArrivalTimer = Random.Range(minTimeBetweenStories, maxTimeBetweenStories) / mult;
     }
 }
