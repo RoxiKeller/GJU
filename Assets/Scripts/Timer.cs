@@ -12,6 +12,20 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timeText;
     public GameObject winPanel; // A UI panel that says "You Survived!"
 
+    [Header("Progression Settings")]
+    public float totalLevelTime = 120f; // 2 minutes
+
+    // Thresholds (Seconds remaining when these start)
+    // Order: 1. Blink (Default) -> 2. Dog -> 3. Storytellers -> 4. Wind
+    public float dogStartTime = 110f;         // 10 seconds in
+    public float storytellerStartTime = 80f;  // 40 seconds in
+    public float windStartTime = 50f;         // 1 minute 10 seconds in
+
+    [Header("References to Toggle")]
+    public Wind windScript;
+    public Dog dogScript; // Or whatever your Dog script is named
+    public Storyteller storytellerScript;
+
     void Start()
     {
         timerIsRunning = true;
@@ -41,6 +55,32 @@ public class Timer : MonoBehaviour
                 timerIsRunning = false;
                 WinGame();
             }
+        }
+
+        HandleProgression();
+    }
+
+    void HandleProgression()
+    {
+        // 1. DOG (First New Threat)
+        if (timeRemaining <= dogStartTime && dogScript != null && !dogScript.enabled)
+        {
+            dogScript.enabled = true; 
+            AnnouncementUI.Instance.Display("A HUNGRY DOG ARRIVES!");
+        }
+
+        // 2. STORYTELLERS (Second Threat)
+        if (timeRemaining <= storytellerStartTime && storytellerScript != null && !storytellerScript.enabled)
+        {
+            storytellerScript.enabled = true;
+            AnnouncementUI.Instance.Display("THE PEASANTS WANT AN AUDIENCE!");
+        }
+
+        // 3. WIND (Final Major Threat)
+        if (timeRemaining <= windStartTime && windScript != null && !windScript.enabled)
+        {
+            windScript.enabled = true;
+            AnnouncementUI.Instance.Display("THE WIND IS PICKING UP...");
         }
     }
 
