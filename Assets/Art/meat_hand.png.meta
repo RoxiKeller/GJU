@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: a04866c6c3a757c48ada4e6ac41ea6d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6325969144832314561
+    second: meat_hand_0
+  - first:
+      213: -7549891898234377507
+    second: meat_hand_1
+  - first:
+      213: -3038375765586783887
+    second: meat_hand_2
+  - first:
+      213: -5992960529746089131
+    second: meat_hand_3
+  - first:
+      213: 6988807287185605436
+    second: meat_hand_4
+  - first:
+      213: 8239620787126633281
+    second: meat_hand_5
+  - first:
+      213: 2146115000693478891
+    second: meat_hand_6
+  - first:
+      213: 4632285496006606085
+    second: meat_hand_7
+  - first:
+      213: -6531523158589997509
+    second: meat_hand_8
+  - first:
+      213: 6944348710481622951
+    second: meat_hand_9
+  - first:
+      213: -1470880052523786405
+    second: meat_hand_10
+  - first:
+      213: -65714920885906993
+    second: meat_hand_11
+  - first:
+      213: 2734957658490464719
+    second: meat_hand_12
+  - first:
+      213: 1425711917581400393
+    second: meat_hand_13
+  - first:
+      213: -4644337384720284279
+    second: meat_hand_14
+  - first:
+      213: -1538303967982185032
+    second: meat_hand_15
+  - first:
+      213: -5560939144959227305
+    second: meat_hand_16
+  - first:
+      213: -6830069870578356482
+    second: meat_hand_17
+  - first:
+      213: 6645547244429392674
+    second: meat_hand_18
+  - first:
+      213: 5726116530754277441
+    second: meat_hand_19
+  - first:
+      213: 5323527137546910789
+    second: meat_hand_20
+  - first:
+      213: -5599665394203700867
+    second: meat_hand_21
+  - first:
+      213: -1975973311504826996
+    second: meat_hand_22
+  - first:
+      213: -1966640819762102063
+    second: meat_hand_23
+  - first:
+      213: -4313707842668188960
+    second: meat_hand_24
+  - first:
+      213: 3160196392393695385
+    second: meat_hand_25
+  - first:
+      213: 1083092515918609108
+    second: meat_hand_26
+  - first:
+      213: -581304759320377465
+    second: meat_hand_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: meat_hand_0
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 3500
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3330364494a538a0800000000000000
+      internalID: -6325969144832314561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_1
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3500
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddae321d155693790800000000000000
+      internalID: -7549891898234377507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_2
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 3500
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1715b06d65585d5d0800000000000000
+      internalID: -3038375765586783887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3500
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b2c87762ab4dca0800000000000000
+      internalID: -5992960529746089131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2800
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c330c5c033b3df060800000000000000
+      internalID: 6988807287185605436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_5
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2800
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1438b945373095270800000000000000
+      internalID: 8239620787126633281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_6
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2800
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be5d877f83888cd10800000000000000
+      internalID: 2146115000693478891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_7
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2800
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50dfaaf9d1f294040800000000000000
+      internalID: 4632285496006606085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_8
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2800
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3e7102fa4e5b55a0800000000000000
+      internalID: -6531523158589997509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2100
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7f2b40c584f5060800000000000000
+      internalID: 6944348710481622951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2100
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f9c12a262669be0800000000000000
+      internalID: -1470880052523786405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_11
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2100
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1172ca0a8861ff0800000000000000
+      internalID: -65714920885906993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_12
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2100
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9ee0eff7584f520800000000000000
+      internalID: 2734957658490464719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_13
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2100
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949fa7f6f6529c310800000000000000
+      internalID: 1425711917581400393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1400
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9854eae51cffb8fb0800000000000000
+      internalID: -4644337384720284279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_15
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1400
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b519dff0b8d6aae0800000000000000
+      internalID: -1538303967982185032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_16
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1400
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a042f8f4393d2b0800000000000000
+      internalID: -5560939144959227305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_17
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1400
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe2415d3a7b631a0800000000000000
+      internalID: -6830069870578356482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_18
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1400
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b3a4a520ab93c50800000000000000
+      internalID: 6645547244429392674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140d91e75a0477f40800000000000000
+      internalID: 5726116530754277441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_20
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 700
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54cb2a1f9b7f0e940800000000000000
+      internalID: 5323527137546910789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_21
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 700
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71d0750efdf942b0800000000000000
+      internalID: -5599665394203700867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_22
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 700
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d3a1a0ebee394e0800000000000000
+      internalID: -1975973311504826996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_23
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 700
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d00c49189615b4e0800000000000000
+      internalID: -1966640819762102063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea22f47291a224c0800000000000000
+      internalID: -4313707842668188960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_25
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990e81d10e54bdb20800000000000000
+      internalID: 3160196392393695385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_26
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da763e97eae70f00800000000000000
+      internalID: 1083092515918609108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meat_hand_27
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 720
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 787077ab66acee7f0800000000000000
+      internalID: -581304759320377465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a2b516ea108d2424d87a7783387aabd2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      meat_hand_0: -6325969144832314561
+      meat_hand_1: -7549891898234377507
+      meat_hand_10: -1470880052523786405
+      meat_hand_11: -65714920885906993
+      meat_hand_12: 2734957658490464719
+      meat_hand_13: 1425711917581400393
+      meat_hand_14: -4644337384720284279
+      meat_hand_15: -1538303967982185032
+      meat_hand_16: -5560939144959227305
+      meat_hand_17: -6830069870578356482
+      meat_hand_18: 6645547244429392674
+      meat_hand_19: 5726116530754277441
+      meat_hand_2: -3038375765586783887
+      meat_hand_20: 5323527137546910789
+      meat_hand_21: -5599665394203700867
+      meat_hand_22: -1975973311504826996
+      meat_hand_23: -1966640819762102063
+      meat_hand_24: -4313707842668188960
+      meat_hand_25: 3160196392393695385
+      meat_hand_26: 1083092515918609108
+      meat_hand_27: -581304759320377465
+      meat_hand_3: -5992960529746089131
+      meat_hand_4: 6988807287185605436
+      meat_hand_5: 8239620787126633281
+      meat_hand_6: 2146115000693478891
+      meat_hand_7: 4632285496006606085
+      meat_hand_8: -6531523158589997509
+      meat_hand_9: 6944348710481622951
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

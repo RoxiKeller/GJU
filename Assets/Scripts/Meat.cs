@@ -3,17 +3,15 @@ using System.Collections;
 
 public class Meat : MonoBehaviour
 {
-    public Vector3 hiddenPosition;
-    public Vector3 visiblePosition;
-    public float moveSpeed = 5f;
-    public float activeDuration = 5f; // How long the meat stays on screen
+    [Header("References")]
+    public Animator meatAnimator;
+    public Dog dog; 
 
     private bool isActive;
-    public Dog dog; // Reference to the dog to tell it when meat is gone
 
-    void Start()
+    void Awake()
     {
-        transform.position = hiddenPosition;
+        gameObject.SetActive(false);
         isActive = false;
     }
 
@@ -21,16 +19,14 @@ public class Meat : MonoBehaviour
     {
         if (isActive) return;
 
-        // The "Safe" condition: The dog is either already sniffing 
-        // OR it is currently walking toward the King to sniff.
-        bool dogIsCurrentlyAThreat = (dog != null && dog.IsMovingToOrInspectingKing());
+        // Wake up the object so Coroutines can run
+        gameObject.SetActive(true);
 
+        // --- Suspicion Logic (Keep your existing check) ---
+        bool dogIsCurrentlyAThreat = (dog != null && dog.IsMovingToOrInspectingKing());
         if (!dogIsCurrentlyAThreat)
         {
-            // 1. Penalty for throwing meat for no reason
             SuspicionSystem.Instance.AddSuspicion(15f);
-            
-            // 2. Alert all NPCs to investigate the weird behavior
             NPC[] allNPCs = UnityEngine.Object.FindObjectsByType<NPC>(FindObjectsSortMode.None);
             foreach (NPC npc in allNPCs)
             {
@@ -39,56 +35,43 @@ public class Meat : MonoBehaviour
             }
         }
 
-        // Normal meat logic follows
         StopAllCoroutines();
-        isActive = true;
-        if (dog != null) dog.Distract();
-        StartCoroutine(MeatSequence());
+        StartCoroutine(SingleAnimationSequence());
     }
 
-    // A simple timer to send the "Witnesses" back home
+    private IEnumerator SingleAnimationSequence()
+    {
+        isActive = true;
+
+        if (dog != null) dog.Distract();
+
+        // 1. Play the one and only animation
+        if (meatAnimator != null)
+        {
+            // Trigger the animation (Make sure the name matches your Animator!)
+            meatAnimator.SetTrigger("PlayMeatAnim");
+            
+            // 2. Wait for the EXACT length of the animation
+            // This pulls the duration directly from the Animator's current clip
+            yield return new WaitForEndOfFrame(); // Wait a frame for the state to change
+            float animLength = meatAnimator.GetCurrentAnimatorStateInfo(0).length;
+            yield return new WaitForSeconds(animLength);
+        }
+        else
+        {
+            // Fallback if no animator found
+            yield return new WaitForSeconds(2f);
+        }
+
+        // 3. Clean up
+        if (dog != null) dog.ResetDistraction();
+        isActive = false;
+        gameObject.SetActive(false);
+    }
+
     private IEnumerator DismissNPCAfterDelay(NPC npc, float delay)
     {
         yield return new WaitForSeconds(delay);
         if (npc != null) npc.EndInspection("How unkingly...");
     }
-
-    private IEnumerator MeatSequence()
-    {
-        // 1. Move to the screen
-        yield return StartCoroutine(MoveTo(visiblePosition));
-
-        // 2. Wait for the duration
-        yield return new WaitForSeconds(activeDuration);
-
-        // 3. Move back off-screen
-        yield return StartCoroutine(MoveTo(hiddenPosition));
-
-        // 4. Reset state and tell the dog it's gone
-        isActive = false;
-        if (dog != null) dog.ResetDistraction();
-    }
-
-    public void HideMeat() // Manual hide if needed
-    {
-        StopAllCoroutines();
-        isActive = false;
-        StartCoroutine(MoveTo(hiddenPosition));
-    }
-
-    IEnumerator MoveTo(Vector3 target)
-    {
-        while (Vector3.Distance(transform.position, target) > 0.05f)
-        {
-            transform.position = Vector3.Lerp(
-                transform.position,
-                target,
-                Time.deltaTime * moveSpeed
-            );
-            yield return null;
-        }
-        transform.position = target;
-    }
-
-    public bool IsActive() => isActive;
 }
