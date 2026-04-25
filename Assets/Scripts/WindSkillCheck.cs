@@ -136,10 +136,10 @@ public class WindSkillCheck : MonoBehaviour
         // The harder the game gets, the more "relief" a success gives
         float relief = 3f * SuspicionSystem.Instance.currentDifficultyMult;
         SuspicionSystem.Instance.ReduceSuspicion(relief);
-
         StopCheck();
         gameObject.SetActive(false);
         OnCheckFinished?.Invoke();
+        AudioManager.instance.PlaySound(AudioManager.instance.Good_skill);
     }
 
     void Fail()
@@ -147,11 +147,11 @@ public class WindSkillCheck : MonoBehaviour
         Debug.Log("FAIL");
 
         SuspicionSystem.Instance.AddSuspicion(10f);
-
         StopCheck();
         gameObject.SetActive(false);
 
         OnCheckFinished?.Invoke();
+        AudioManager.instance.PlaySound(AudioManager.instance.Bad_skill);
     }
 
     public void StartCheck()

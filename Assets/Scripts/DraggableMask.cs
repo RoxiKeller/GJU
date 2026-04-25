@@ -96,6 +96,7 @@ public class DraggableMask : MonoBehaviour
             {
                 slot.EquipMask(this);
                 transform.position = startPosition;
+                AudioManager.instance.PlaySound(AudioManager.instance.Mask_on);
                 return; 
             }
         }

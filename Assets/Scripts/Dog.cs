@@ -21,6 +21,7 @@ public class Dog : NPC
     {
         base.Start();
         lastPosition = transform.position;
+        AudioManager.instance.PlaySound(AudioManager.instance.Bark1);
         DetermineNextInspectionTime();
     }
 
@@ -75,6 +76,7 @@ public class Dog : NPC
     protected override void OnSuspicionThresholdReached()
     {
         base.OnSuspicionThresholdReached(); // Sets currentReason = "Angry"
+        AudioManager.instance.PlaySound(AudioManager.instance.Dog_grrr);
         Say("GRRRR! BARK!");
     }
 
