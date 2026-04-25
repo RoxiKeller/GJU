@@ -51,7 +51,8 @@ public class King : MonoBehaviour
         if (audioSource != null && blinkSound != null)
         {
             // Randomize pitch slightly (e.g., between 0.9 and 1.1)
-            AudioManager.instance.PlaySound(AudioManager.instance.Blink);
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(blinkSound);
         }
 
         // 2. Tell the Animator to play the blink

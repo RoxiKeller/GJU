@@ -79,7 +79,8 @@ public class Wind : MonoBehaviour
     void TriggerWind()
     {
         float force = UnityEngine.Random.Range(minForce, maxForce);
-
+        if (AudioManager.instance != null)
+        AudioManager.instance.PlaySound(AudioManager.instance.Wind);
         Debug.Log("🌬 Wind triggered: " + force);
 
         // make sure visual appears immediately

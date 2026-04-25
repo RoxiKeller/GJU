@@ -21,7 +21,6 @@ public class Dog : NPC
     {
         base.Start();
         lastPosition = transform.position;
-        AudioManager.instance.PlaySound(AudioManager.instance.Bark1);
         DetermineNextInspectionTime();
     }
 
@@ -41,6 +40,7 @@ public class Dog : NPC
             if (nextInspectionTimer <= 0) 
             {
                 StartInspection("Sniff sniff...");
+                AudioManager.instance.PlaySound(AudioManager.instance.Bark1);
             }
         }
     }
@@ -76,7 +76,7 @@ public class Dog : NPC
     protected override void OnSuspicionThresholdReached()
     {
         base.OnSuspicionThresholdReached(); // Sets currentReason = "Angry"
-        AudioManager.instance.PlaySound(AudioManager.instance.Dog_grrr);
+        
         Say("GRRRR! BARK!");
     }
 
@@ -115,6 +115,7 @@ public class Dog : NPC
         if (Vector3.Distance(transform.position, meat.transform.position) < 0.2f)
         {
             distracted = false;
+            AudioManager.instance.PlaySound(AudioManager.instance.Dog_eat);
         }
     }
 
