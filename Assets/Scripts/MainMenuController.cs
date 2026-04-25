@@ -13,7 +13,24 @@ public class MainMenuController : MonoBehaviour
     [Header("Audio UI Refereneces")] 
     public Toggle muteToggle;
     public Slider masterSlider;
+
+    public static bool shouldOpenCreditsOnLoad = false;
     
+    void Start()
+    {
+        // Check if we came here from the Win Screen
+        if (shouldOpenCreditsOnLoad)
+        {
+            OpenCredits();
+            shouldOpenCreditsOnLoad = false; // Reset it so it doesn't happen every time!
+        }
+    }
+
+    void Update() {
+        if (creditsPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+            CloseCredits();
+        }
+    }
 
     public void PlayGame()
     {
@@ -61,13 +78,12 @@ public class MainMenuController : MonoBehaviour
     public void OpenCredits()
     {
         creditsPanel.SetActive(true);
-
         var anim = creditsPanel.GetComponentInChildren<Animator>();
-
         if (anim != null)
         {
+            // Since we are in the Menu scene, Time.timeScale is 1, 
+            // so standard "Normal" update mode works here!
             anim.Play("Credits_Crawl", 0, 0f);
-            anim.Update(0);
         }
     }
 
