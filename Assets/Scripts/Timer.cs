@@ -36,6 +36,7 @@ public class Timer : MonoBehaviour
     {
         timerIsRunning = true;
         if (winPanel != null) winPanel.SetActive(false);
+        AudioManager.instance.PlaySound(AudioManager.instance.CK_intro);
     }
 
     private bool isHecticPhase = false; // Add this variable at the top
@@ -59,6 +60,7 @@ public class Timer : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
+                AudioManager.instance.PlaySound(AudioManager.instance.Alarm);
                 WinGame();
             }
         }

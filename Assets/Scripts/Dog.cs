@@ -83,11 +83,11 @@ public class Dog : NPC
     public void Distract()
     {
         if (distracted) return; 
-
+        
         distracted = true;
         isInspecting = false;
         // currentInspectionTimer resets to 0 automatically in next base.Update() call
-        
+        AudioManager.instance.PlaySound(AudioManager.instance.Bark2);
         Say("Bork! MEAT!");
         DetermineNextInspectionTime();
     }
