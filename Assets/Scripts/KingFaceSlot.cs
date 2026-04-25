@@ -42,6 +42,7 @@ public class KingFaceSlot : MonoBehaviour
             // Remove the mask
             maskLayerRenderer.sprite = null;
             currentlyEquippedMask = "None";
+            AudioManager.instance.PlaySound(AudioManager.instance.Mask_off);
             
             Debug.Log("The King's mask fell off!");
             // Play a "paper sliding" or "rip" sound
