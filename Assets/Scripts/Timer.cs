@@ -79,7 +79,7 @@ public class Timer : MonoBehaviour
         if (timeRemaining <= storytellerStartTime && storytellerScript != null && !storytellerScript.enabled)
         {
             storytellerScript.enabled = true;
-            AnnouncementUI.Instance.Display("The peasants want to talk to the king! Keep up the illusion by dragging and dropping masks!");
+            AnnouncementUI.Instance.Display("The peasants want to talk to the king! Drag mask to king to equip, left click to unequip");
         }
 
         // 3. WIND (Final Major Threat)
