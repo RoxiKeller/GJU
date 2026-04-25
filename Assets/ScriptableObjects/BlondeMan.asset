@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75407b7c597ebaa41973d4ce4d14586a, type: 3}
+  m_Name: BlondeMan
+  m_EditorClassIdentifier: 
+  animatorController: {fileID: 9100000, guid: 7961457538a830a4fa6505cbea586588, type: 2}
+  speechBubbleTint: {r: 1, g: 1, b: 1, a: 1}
+  idleSprite: {fileID: 9128442281207902013, guid: 033a82705816b1e4c9ffb3ff7806b9b9, type: 3}

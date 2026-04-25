@@ -82,10 +82,12 @@ public class Storyteller : NPC
     {
         if (storyPool != null && storyPool.Length > 0)
         {
+            // Pick the look first!
+            ApplyRandomLook(); 
+
             currentStory = storyPool[Random.Range(0, storyPool.Length)];
             listeningTimer = timeToListen; 
 
-            // --- SCALE GRACE PERIOD ---
             float mult = SuspicionSystem.Instance.currentDifficultyMult;
             currentGraceTimer = gracePeriod / mult; 
             
@@ -173,6 +175,5 @@ public class Storyteller : NPC
     {
         base.EndInspection(message);
         // Optional: Change look for the NEXT time they arrive
-        ApplyRandomLook(); 
     }
 }

@@ -3535,7 +3535,7 @@ Animator:
   m_GameObject: {fileID: 1398092253}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6e3221bcd9a8aa4aaf6bf0caf57b849, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0d7ea4e57995c8b4ab6507fca215c437, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4182,6 +4182,8 @@ MonoBehaviour:
   gracePeriod: 3
   availableLooks:
   - {fileID: 11400000, guid: 4023d808a507d9a40b6f0d2a6008c9fe, type: 2}
+  - {fileID: 11400000, guid: 9e2901de6f4a6db44a97bbf9d10d6c81, type: 2}
+  - {fileID: 11400000, guid: 593dcf5281724364399fd5f56d071da9, type: 2}
   storytellerAnimator: {fileID: 401261672}
   storytellerSprite: {fileID: 401261671}
 --- !u!1 &1664829222
