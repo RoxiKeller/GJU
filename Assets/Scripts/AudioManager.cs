@@ -30,7 +30,13 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        
+        // Ne asigurăm că există un singur AudioManager în tot jocul
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Nu se distruge când schimbi scena
+        } else {
+            Destroy(gameObject);
+        }
     }
 
     public void PlaySound(AudioClip clip)
