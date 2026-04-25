@@ -59,7 +59,6 @@ public class Wind : MonoBehaviour
     public void OnSkillCheckStart()
     {
         isSkillCheckActive = true;
-
         // 🌬 keep wind visible during the whole skill check
         if (windVisual != null)
             windVisual.SetActive(true);
