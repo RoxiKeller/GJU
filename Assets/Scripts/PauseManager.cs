@@ -73,6 +73,7 @@ public class PauseManager : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f; 
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
         SceneManager.LoadScene("MainMenu");
     }
     public void SetMasterVolume(float volume)

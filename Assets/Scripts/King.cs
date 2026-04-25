@@ -36,6 +36,7 @@ public class King : MonoBehaviour
         // Set the last blink to 2 seconds (or more) BEFORE the game started.
         // This makes the very first blink "safe."
         lastBlinkTime = -safeBlinkInterval;
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, true);
     }
 
     void Update()

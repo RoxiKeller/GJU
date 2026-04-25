@@ -36,7 +36,7 @@ public class Timer : MonoBehaviour
     {
         timerIsRunning = true;
         if (winPanel != null) winPanel.SetActive(false);
-        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, true);
+        
     }
 
     private bool isHecticPhase = false; // Add this variable at the top
