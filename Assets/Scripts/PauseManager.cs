@@ -4,20 +4,27 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    public GameObject settingsPanel; // Trage panoul aici în Inspector
+    public GameObject settingsPanel;
     public bool isPaused = false;
 
-    public void Start()
+    private void Start()
     {
+        // Ne asigurăm că totul e închis la început
         if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(false);
+        Time.timeScale = 1f; // Siguranță maximă
     }
+
     void Update()
     {
-        // Verificăm dacă jucătorul apasă Escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            // Dacă e deschis panoul de setări, Escape ar trebui să închidă doar setările
+            if (settingsPanel != null && settingsPanel.activeSelf)
+            {
+                CloseSettings();
+            }
+            else if (isPaused)
             {
                 Resume();
             }
@@ -30,27 +37,37 @@ public class PauseManager : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false); // Ascundem meniul
-        Time.timeScale = 1f;          // Reluăm timpul
+        pauseMenuUI.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        Time.timeScale = 1f;
         isPaused = false;
     }
 
     public void Pause()
     {
-        pauseMenuUI.SetActive(true);  // Arătăm meniul
-        Time.timeScale = 0f;          // Înghețăm timpul
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void OpenSettings()
     {
-        Debug.Log("Deschidem setările... (Aici pui logica ta)");
-        // Poți activa un alt panou de setări aici
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(true);
+            pauseMenuUI.SetActive(false);
+        }
+    }
+
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 
     public void LoadMainMenu()
     {
-        Time.timeScale = 1f; // FOARTE IMPORTANT: Resetăm timpul înainte de load!
-        SceneManager.LoadScene("MainMenu"); // Pune numele exact al scenei tale
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene("MainMenu");
     }
 }
