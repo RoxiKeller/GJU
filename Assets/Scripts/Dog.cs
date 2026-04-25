@@ -115,7 +115,7 @@ public class Dog : NPC
         if (Vector3.Distance(transform.position, meat.transform.position) < 0.2f)
         {
             distracted = false;
-            AudioManager.instance.PlaySound(AudioManager.instance.Dog_eat);
+            //AudioManager.instance.PlaySound(AudioManager.instance.Dog_eat);
         }
     }
 
