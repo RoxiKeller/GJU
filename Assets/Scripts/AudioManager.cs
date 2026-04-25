@@ -4,7 +4,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance; // Singleton: permite accesul global
 
-    public AudioSource sfxSource; // Sursa care va scoate sunetul
+    public AudioSource sfxSource;
+    public AudioSource musicSource; // Sursa care va scoate sunetul
 
     public AudioClip Blink;
     public AudioClip Bark1;
@@ -13,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Bad_skill;
     public AudioClip Good_skill;
     public AudioClip CK_intro;
+    public AudioClip CK_gameplay;
     public AudioClip CK_victory;
     public AudioClip CK_failure;
     public AudioClip Dog_eat;
@@ -43,6 +45,22 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(clip);
         } else {
             Debug.LogWarning("Ai uitat să bagi clipul audio, patroane!");
+        }
+    }
+    public void ToggleLoop(AudioClip clip, bool shouldLoop)
+    {
+        if (clip == null) return;
+
+        if (shouldLoop)
+        {
+            musicSource.clip = clip;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
+        else
+        {
+            musicSource.Stop();
+            musicSource.loop = false;
         }
     }
 }

@@ -62,7 +62,7 @@ public class IntroManager : MonoBehaviour
     {
         initialScale = transform.localScale;
         StartCoroutine(PlayIntro());
-        AudioManager.instance.PlaySound(AudioManager.instance.CK_intro);
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_intro, true);
     }
 
     void Update()
@@ -138,5 +138,6 @@ public class IntroManager : MonoBehaviour
     void LoadNextScene()
     {
         SceneManager.LoadScene(nextSceneName);
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_intro, false);
     }
 }
