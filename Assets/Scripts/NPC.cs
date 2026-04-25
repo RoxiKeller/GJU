@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     [Header("Movement")]
     public Transform inspectionPoint;
     public float walkSpeed = 2f;
-    public float stoppingDistance = 5f;
+    public float stoppingDistance = 3f;
 
     [Header("Suspicion Settings")]
     public float maxWaitTimeBeforeSuspicion = 3f;

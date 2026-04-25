@@ -1243,7 +1243,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &494497164
 GameObject:
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   displayDuration: 3
   inspectionPoint: {fileID: 1733740713}
   walkSpeed: 2
-  stoppingDistance: 5
+  stoppingDistance: 3
   maxWaitTimeBeforeSuspicion: 3
   suspicionRate: 5
   spawnArea: {fileID: 825301354}
@@ -1406,7 +1406,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &564039920
 GameObject:
@@ -2448,7 +2448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &911023261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3499,7 +3499,7 @@ MonoBehaviour:
   displayDuration: 3
   inspectionPoint: {fileID: 1733740713}
   walkSpeed: 2
-  stoppingDistance: 5
+  stoppingDistance: 3
   maxWaitTimeBeforeSuspicion: 3
   suspicionRate: 5
   spawnArea: {fileID: 825301354}
@@ -4166,7 +4166,7 @@ MonoBehaviour:
   displayDuration: 3
   inspectionPoint: {fileID: 1733740713}
   walkSpeed: 2
-  stoppingDistance: 5
+  stoppingDistance: 3
   maxWaitTimeBeforeSuspicion: 3
   suspicionRate: 5
   spawnArea: {fileID: 825301354}
@@ -4234,6 +4234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskType: Happy
+  hoverScaleMultiplier: 1.2
+  lerpSpeed: 10
 --- !u!61 &1664829225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4678,7 +4680,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1855467570
 GameObject:
@@ -5482,6 +5484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskType: Sad
+  hoverScaleMultiplier: 1.2
+  lerpSpeed: 10
 --- !u!61 &2083259435
 BoxCollider2D:
   m_ObjectHideFlags: 0

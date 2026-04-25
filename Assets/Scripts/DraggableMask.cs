@@ -3,8 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class DraggableMask : MonoBehaviour
 {
-    public string maskType; // "Happy" or "Sad"
+    public string maskType; 
     
+    [Header("Responsive Settings")]
+    public float hoverScaleMultiplier = 1.2f;
+    public float lerpSpeed = 10f;
+    private Vector3 targetScale;
+    private Vector3 originalScale;
+
     private Vector3 startPosition;
     private bool isDragging = false;
     private SpriteRenderer spriteRenderer;
@@ -16,7 +22,17 @@ public class DraggableMask : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         startPosition = transform.position;
-        mainCamera = Camera.main; // Cache the main camera for performance
+        mainCamera = Camera.main;
+
+        // Store the original scale to return to it later
+        originalScale = transform.localScale;
+        targetScale = originalScale;
+    }
+
+    void Update()
+    {
+        // Smoothly interpolate the scale every frame
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * lerpSpeed);
     }
 
     // Unity automatically calls these functions on objects with colliders
@@ -86,5 +102,25 @@ public class DraggableMask : MonoBehaviour
 
         // If we reach here, we didn't hit the face
         transform.position = startPosition;
+    }
+
+    // --- HOVER LOGIC ---
+    void OnMouseEnter()
+    {
+        if (!isDragging)
+        {
+            targetScale = originalScale * hoverScaleMultiplier;
+            // Optional: Slight highlight
+            spriteRenderer.color = new Color(originalColor.r + 0.1f, originalColor.g + 0.1f, originalColor.b + 0.1f, 1f);
+        }
+    }
+
+    void OnMouseExit()
+    {
+        if (!isDragging)
+        {
+            targetScale = originalScale;
+            spriteRenderer.color = originalColor;
+        }
     }
 }
