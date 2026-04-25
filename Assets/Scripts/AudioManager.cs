@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Good_skill;
     public AudioClip CK_intro;
     public AudioClip CK_victory;
+    public AudioClip CK_failure;
     public AudioClip Dog_eat;
     public AudioClip Dog_grrr;
     public AudioClip Hmm1;

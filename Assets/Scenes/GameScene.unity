@@ -4053,6 +4053,7 @@ MonoBehaviour:
   Good_skill: {fileID: 8300000, guid: 2efc2a06aa1e4184e90f66eba88fa195, type: 3}
   CK_intro: {fileID: 8300000, guid: 659ee7cc900227843b25c28bb24f7e46, type: 3}
   CK_victory: {fileID: 8300000, guid: 193afb5b5385c974fb731e9688f5b651, type: 3}
+  CK_failure: {fileID: 8300000, guid: e9be22cc86cbbbe4e9e7ffd20b1ef33f, type: 3}
   Dog_eat: {fileID: 8300000, guid: 2a0b3231f085fd04b9e092b2231fbd4e, type: 3}
   Dog_grrr: {fileID: 8300000, guid: 3a5b6addbc8f7314e8218a670f59f292, type: 3}
   Hmm1: {fileID: 8300000, guid: 5cf31dad41ba4164e81874c2982bcaf3, type: 3}
