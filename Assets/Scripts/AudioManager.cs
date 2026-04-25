@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource sfxSource; // Sursa care va scoate sunetul
 
+    public AudioClip Blink;
     public AudioClip Bark1;
     public AudioClip Bark2; // Clip pentru lătrat de câine
     public AudioClip Alarm;
