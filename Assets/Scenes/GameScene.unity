@@ -1456,7 +1456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.71}
+  m_AnchoredPosition: {x: 0, y: 2.42}
   m_SizeDelta: {x: 3.23, y: 2.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529777860
@@ -2639,7 +2639,7 @@ Transform:
   m_GameObject: {fileID: 825301353}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: -10.24, z: -0.067495465}
+  m_LocalPosition: {x: 0.3, y: -11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3523,8 +3523,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1236817047}
   - component: {fileID: 1236817048}
+  - component: {fileID: 1236817049}
   m_Layer: 0
-  m_Name: Square
+  m_Name: VillagerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3540,8 +3541,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1311838112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3589,7 +3590,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -7758337330338510472, guid: 6a9e7a26b5083344b84ac56cdfc155f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3600,6 +3601,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1236817049
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236817046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43941665215ba764fa9483a7b9e83ae4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1278745624
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,6 +3754,8 @@ MonoBehaviour:
   maxWaitTimeBeforeSuspicion: 3
   suspicionRate: 5
   spawnArea: {fileID: 825301354}
+  villagerAnimator: {fileID: 1236817049}
+  villagerSprite: {fileID: 1236817048}
   noticeThreshold: 6
   blinkCountThreshold: 3
   blinkWindow: 3
@@ -4756,9 +4781,9 @@ MonoBehaviour:
   timeText: {fileID: 359869061}
   winPanel: {fileID: 0}
   totalLevelTime: 120
-  dogStartTime: 120
+  dogStartTime: 110
   storytellerStartTime: 80
-  windStartTime: 90
+  windStartTime: 50
   windScript: {fileID: 1985864920}
   dogScript: {fileID: 494497167}
   storytellerScript: {fileID: 1614451042}
