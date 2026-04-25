@@ -25,6 +25,7 @@ public class LoseUI : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -35,6 +36,8 @@ public class LoseUI : MonoBehaviour
         Time.timeScale = 1f;
 
         // 2. Load the menu scene
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
         SceneManager.LoadScene(mainMenuSceneName);
+        
     }
 }
