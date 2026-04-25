@@ -5,38 +5,71 @@ public class Dog : NPC
 {
     public Meat meat;
 
+    [Header("Animations")]
+    public Animator dogAnimator;
+    public SpriteRenderer dogSprite;
+
     [Header("Random Inspection Settings")]
     public float minWaitTime = 5f;
     public float maxWaitTime = 15f;
-    
-    // Note: Use 'suspicionRate' and 'maxWaitTimeBeforeSuspicion' 
-    // from the base class inspector to tune the dog's anger!
 
     private bool distracted;
     private float nextInspectionTimer;
+    private Vector3 lastPosition;
 
     protected override void Start()
     {
         base.Start();
+        lastPosition = transform.position;
         DetermineNextInspectionTime();
     }
 
     protected override void Update()
     {
-        if (distracted) { MoveToMeat(); return; }
+        // 1. Handle actual logic
+        if (distracted) { MoveToMeat(); }
+        else { base.Update(); }
 
-        // This handles: HandleMovement, HandleSuspicionTimer, and currentInspectionTimer reset
-        base.Update(); 
+        // 2. Handle Visuals (Animations and Flipping)
+        HandleVisuals();
 
-        if (!isInspecting)
+        // 3. Spawning/Inspection logic
+        if (!isInspecting && !distracted)
         {
             nextInspectionTimer -= Time.deltaTime;
             if (nextInspectionTimer <= 0) 
             {
                 StartInspection("Sniff sniff...");
-                // currentInspectionTimer is reset to 0 automatically by base.Update logic
             }
         }
+    }
+
+    private void HandleVisuals()
+    {
+        // Calculate velocity based on movement since last frame
+        float movementDelta = (transform.position - lastPosition).magnitude;
+        bool isMoving = movementDelta > 0.001f; // Threshold to avoid micro-jitters
+
+        // Update Animator (Assumes you have a bool parameter named 'isWalking')
+        if (dogAnimator != null)
+        {
+            dogAnimator.SetBool("isWalking", isMoving);
+        }
+
+        // Handle Flipping
+        if (isMoving)
+        {
+            float directionX = transform.position.x - lastPosition.x;
+            
+            // If moving right (pos X), flip false. If moving left (neg X), flip true.
+            // Note: This depends on your sprite's default facing direction.
+            if (Mathf.Abs(directionX) > 0.001f)
+            {
+                dogSprite.flipX = directionX > 0;
+            }
+        }
+
+        lastPosition = transform.position;
     }
 
     protected override void OnSuspicionThresholdReached()
@@ -81,12 +114,6 @@ public class Dog : NPC
         {
             distracted = false;
         }
-    }
-
-    public bool IsInspectingKing()
-    {
-        // The dog is only "active" if it is inspecting AND has reached the king
-        return isInspecting && HasReachedTarget();
     }
 
     public bool IsMovingToOrInspectingKing()
