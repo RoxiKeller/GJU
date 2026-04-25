@@ -62,6 +62,7 @@ public class IntroManager : MonoBehaviour
     {
         initialScale = transform.localScale;
         StartCoroutine(PlayIntro());
+        AudioManager.instance.PlaySound(AudioManager.instance.CK_intro);
     }
 
     void Update()
