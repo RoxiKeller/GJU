@@ -20,6 +20,10 @@ public class IntroManager : MonoBehaviour
     [Header("Scrolling")]
     public float startX = 0f;
     public float endX = -5625f; // Adjust this until the end of the image is reached
+    public float speed = 0.5f;      // Cât de repede pulsează
+    public float amplitude = 0.1f; // Cât de mult se mărește (0.1 = 10%)
+    Vector3 initialScale;
+    public GameObject space_text;
 
     private string[] lines = {
         "During the glorious year of 506... a golden age!",
@@ -56,12 +60,18 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
+        initialScale = transform.localScale;
         StartCoroutine(PlayIntro());
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) LoadNextScene();
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {Invoke("LoadNextScene",1f);
+        StartCoroutine(FadeOut());
+        }
+        float pulse = 1f + Mathf.Sin(Time.time * speed) * amplitude;
+        space_text.transform.localScale = initialScale * pulse;
     }
 
     IEnumerator PlayIntro()
