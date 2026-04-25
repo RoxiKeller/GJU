@@ -76,7 +76,7 @@ public class Dog : NPC
     protected override void OnSuspicionThresholdReached()
     {
         base.OnSuspicionThresholdReached(); // Sets currentReason = "Angry"
-        
+        AudioManager.instance.PlaySound(AudioManager.instance.Dog_grrr);
         Say("GRRRR! BARK!");
     }
 

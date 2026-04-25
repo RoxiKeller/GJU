@@ -24,6 +24,7 @@ public class NPC : MonoBehaviour
     protected bool isInspecting;
     protected string currentReason;
     protected Coroutine dialogueCoroutine;
+    private int randomHM;
 
     [Header("Random Spawning Area")]
     public BoxCollider2D spawnArea;
@@ -91,6 +92,23 @@ public class NPC : MonoBehaviour
     // Allow child classes to define their own "Angry" shout
     protected virtual void OnSuspicionThresholdReached()
     {
+        if(AudioManager.instance != null)
+            randomHM=Random.Range(0,3);
+            switch(randomHM)
+            {
+                case 0:
+                    AudioManager.instance.PlaySound(AudioManager.instance.Hmm1);
+                    break;
+                case 1:
+                    AudioManager.instance.PlaySound(AudioManager.instance.Hmm2);
+                    break;
+                case 2:
+                    AudioManager.instance.PlaySound(AudioManager.instance.Hmm3);
+                    break;
+                default:
+                    AudioManager.instance.PlaySound(AudioManager.instance.Hmm1);
+                    break;
+            }
         currentReason = "Angry";
         Say("Something is wrong here...");
     }
