@@ -5259,11 +5259,47 @@ MonoBehaviour:
   minTimeBetweenStories: 10
   maxTimeBetweenStories: 20
   storyPool:
-  - storyText: happy
+  - storyText: The wheat harvest is plentiful!
     requiredMask: Happy
     suspicionPenalty: 10
-  - storyText: sad
+  - storyText: The military returned from a successful campaign!
+    requiredMask: Happy
+    suspicionPenalty: 10
+  - storyText: The jester had the whole court laughing last night!
+    requiredMask: Happy
+    suspicionPenalty: 10
+  - storyText: The greatest bards in the land have arrived for tonight!
+    requiredMask: Happy
+    suspicionPenalty: 10
+  - storyText: A new transport of honey just arrived!
+    requiredMask: Happy
+    suspicionPenalty: 10
+  - storyText: I gathered the fireworks for your birthday!
+    requiredMask: Happy
+    suspicionPenalty: 10
+  - storyText: The tribute from the lords just arrived!
+    requiredMask: Happy
+    suspicionPenalty: 10
+  - storyText: My house just burned down!
     requiredMask: Sad
+    suspicionPenalty: 10
+  - storyText: My kid ran away from home!
+    requiredMask: Sad
+    suspicionPenalty: 10
+  - storyText: My cat is missing, I can't find her!
+    requiredMask: Sad
+    suspicionPenalty: 10
+  - storyText: I have a hangover, I feel sick...
+    requiredMask: Sad
+    suspicionPenalty: 10
+  - storyText: King, we are at war with the neighboring kingdoms!
+    requiredMask: Sad
+    suspicionPenalty: 10
+  - storyText: My cow just died, I can't go on like this!
+    requiredMask: Sad
+    suspicionPenalty: 10
+  - storyText: King, the peasants are not paying their debts!
+    requiredMask: Happy
     suspicionPenalty: 10
   timeToListen: 5
   gracePeriod: 3
