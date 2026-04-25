@@ -17,16 +17,26 @@ public class Storyteller : NPC
     private float listeningTimer;
     private float currentGraceTimer;
 
+    [Header("Visual Variety")]
+    public StorytellerLook[] availableLooks;
+    public Animator storytellerAnimator;
+    public SpriteRenderer storytellerSprite;
+    
+    private Sprite currentIdleSprite; // To remember which idle to use
+    private Vector3 lastPosition;
+
     protected override void Start()
     {
         base.Start();
-        SetRandomArrivalTimer();
+        lastPosition = transform.position;
+        ApplyRandomLook();
     }
 
     protected override void Update()
     {
         HandleMovement(); 
-
+        HandleVisuals();
+        
         if (!isInspecting)
         {
             nextArrivalTimer -= Time.deltaTime;
@@ -49,6 +59,22 @@ public class Storyteller : NPC
             }
 
             if (listeningTimer <= 0) FinishStory();
+        }
+    }
+
+    public void ApplyRandomLook()
+    {
+        if (availableLooks != null && availableLooks.Length > 0)
+        {
+            StorytellerLook chosenLook = availableLooks[Random.Range(0, availableLooks.Length)];
+            
+            // Store the idle sprite for this specific look
+            currentIdleSprite = chosenLook.idleSprite;
+
+            if (storytellerAnimator != null)
+            {
+                storytellerAnimator.runtimeAnimatorController = chosenLook.animatorController;
+            }
         }
     }
 
@@ -108,5 +134,45 @@ public class Storyteller : NPC
         // If mult is 1.0, wait is normal. If mult is 2.0, wait is halved!
         float mult = SuspicionSystem.Instance.currentDifficultyMult;
         nextArrivalTimer = Random.Range(minTimeBetweenStories, maxTimeBetweenStories) / mult;
+    }
+
+    private void HandleVisuals()
+    {
+        float movementDelta = (transform.position - lastPosition).magnitude;
+        bool isMoving = movementDelta > 0.001f;
+
+        if (storytellerAnimator != null)
+        {
+            // Disable animator if not moving so it doesn't fight our manual sprite swap
+            storytellerAnimator.enabled = isMoving; 
+            
+            if (isMoving)
+            {
+                storytellerAnimator.SetBool("isWalking", true);
+            }
+            else
+            {
+                // Force the idle sprite when stopped
+                storytellerSprite.sprite = currentIdleSprite;
+            }
+        }
+
+        if (isMoving)
+        {
+            float directionX = transform.position.x - lastPosition.x;
+            if (Mathf.Abs(directionX) > 0.01f)
+            {
+                // Flip logic: assuming sprite faces right by default
+                storytellerSprite.flipX = directionX > 0;
+            }
+        }
+        lastPosition = transform.position;
+    }
+
+    public override void EndInspection(string message)
+    {
+        base.EndInspection(message);
+        // Optional: Change look for the NEXT time they arrive
+        ApplyRandomLook(); 
     }
 }
