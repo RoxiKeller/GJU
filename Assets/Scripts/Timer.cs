@@ -72,21 +72,21 @@ public class Timer : MonoBehaviour
         if (timeRemaining <= dogStartTime && dogScript != null && !dogScript.enabled)
         {
             dogScript.enabled = true; 
-            AnnouncementUI.Instance.Display("A HUNGRY DOG ARRIVES!");
+            AnnouncementUI.Instance.Display("Your dog is blowing your cover! Distract him!");
         }
 
         // 2. STORYTELLERS (Second Threat)
         if (timeRemaining <= storytellerStartTime && storytellerScript != null && !storytellerScript.enabled)
         {
             storytellerScript.enabled = true;
-            AnnouncementUI.Instance.Display("THE PEASANTS WANT AN AUDIENCE!");
+            AnnouncementUI.Instance.Display("The peasants want to talk to the king! Keep up the illusion by dragging and dropping masks!");
         }
 
         // 3. WIND (Final Major Threat)
         if (timeRemaining <= windStartTime && windScript != null && !windScript.enabled)
         {
             windScript.enabled = true;
-            AnnouncementUI.Instance.Display("THE WIND IS PICKING UP...");
+            AnnouncementUI.Instance.Display("The wind is tilting the cardboard king! Resist by trying to hit the green zone with Space!");
         }
     }
 
