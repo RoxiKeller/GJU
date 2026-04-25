@@ -139,6 +139,7 @@ public class WindSkillCheck : MonoBehaviour
         StopCheck();
         gameObject.SetActive(false);
         OnCheckFinished?.Invoke();
+        if (AudioManager.instance != null)
         AudioManager.instance.PlaySound(AudioManager.instance.Good_skill);
     }
 
@@ -151,6 +152,7 @@ public class WindSkillCheck : MonoBehaviour
         gameObject.SetActive(false);
 
         OnCheckFinished?.Invoke();
+        if (AudioManager.instance != null)
         AudioManager.instance.PlaySound(AudioManager.instance.Bad_skill);
     }
 

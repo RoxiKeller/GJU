@@ -48,11 +48,8 @@ public class King : MonoBehaviour
     public void OnBlinkButton() 
     {
         // 1. Play the Sound
-        if (audioSource != null && blinkSound != null)
-        {
-            // Randomize pitch slightly (e.g., between 0.9 and 1.1)
+        if (AudioManager.instance != null)
             AudioManager.instance.PlaySound(AudioManager.instance.Blink);
-        }
 
         // 2. Tell the Animator to play the blink
         if (kingAnimator != null)
