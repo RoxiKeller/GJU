@@ -18,6 +18,7 @@ public class MainMenuController : MonoBehaviour
     
     void Start()
     {
+        settingsPanel.SetActive(false);
         // Check if we came here from the Win Screen
         if (shouldOpenCreditsOnLoad)
         {

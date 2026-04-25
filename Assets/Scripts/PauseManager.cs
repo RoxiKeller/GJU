@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject settingsPanel;
     public bool isPaused = false;
+    public Toggle muteToggle;
+    public Slider masterSlider;
+    public AudioMixer mainMixer;
 
     private void Start()
     {
@@ -69,5 +74,32 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f; 
         SceneManager.LoadScene("MainMenu");
+    }
+    public void SetMasterVolume(float volume)
+    {
+
+        if (muteToggle != null && muteToggle.isOn)
+        {
+            mainMixer.SetFloat("MasterVol", -80f);
+            return;
+        }
+        
+        mainMixer.SetFloat("MasterVol", Mathf.Log10(volume) * 20);
+    }
+    
+    public void SetSFXVolume(float volume)
+    {
+        mainMixer.SetFloat("SFXVol", Mathf.Log10(volume) * 20);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        mainMixer.SetFloat("MusicVol", Mathf.Log10(volume) * 20);
+    }
+    
+    public void SetMute(bool isMuted)
+    {
+        if (isMuted) mainMixer.SetFloat("MasterVol", -80f);
+        else SetMasterVolume(masterSlider.value);
     }
 }
