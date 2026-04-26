@@ -735,13 +735,72 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<align=center>\n<size=120%><b>CARDBOARD KING</b></size>\n\n<voffset=2em>\n<b>ART
-    & VISUALS</b>\nFlorinel Vicar\nLaura Contra\n\n<voffset=2em>\n<b>PROGRAMMING</b>\n<b>Roxana
-    Keller</b>\n<i>Gameplay, UI Programming, Game Design, Team Management</i>\n\n<b>Gabriel
-    Toma</b>\n<i>UI Programming</i>\n\n<voffset=2em>\n<b>SOUND & MUSIC</b>\n<b>Rudolf
-    Rauth</b>\n<i>Original Score & Sound Design</i>\n\n<voffset=2em>\n<b>NARRATIVE</b>\n<b>\u0218tefania
-    Cr\u0103ciun</b>\n<i>Intro Text</i>\n\n<voffset=2em>\n<b>SPECIAL THANKS</b>\nOur
-    Playtesters\nCoffee\nAnd You!\n</align>"
+  m_text: '<align=center>
+
+    <size=150%><b>CARDBOARD KING</b></size>
+
+
+    <voffset=2em>
+
+    <size=110%><b>Roxana
+    Keller</b></size>
+
+    Programming (Gameplay, UI, Sound Integration),
+
+    Game
+    Design, Team Management
+
+
+    <voffset=2em>
+
+    <size=110%><b>Laura Contra</b></size>
+
+    Art
+    (Animations, UI)
+
+
+    <voffset=2em>
+
+    <size=110%><b>Rudolf Rauth</b></size>
+
+    Sound
+    Design (Original Music & SFX)
+
+
+    <voffset=2em>
+
+    <size=110%><b>Vicar Florinel</b></size>
+
+    Art
+    (Backgrounds), Narrative (NPC Stories),
+
+    Programming (UI, Sound Integration)
+
+
+    <voffset=2em>
+
+    <size=110%><b>Gabriel
+    Toma</b></size>
+
+    Programming (UI)
+
+
+    <voffset=2em>
+
+    <size=110%><b>Stefania
+    Craciun</b></size>
+
+    Narrative (Intro Text)
+
+
+    <voffset=3em>
+
+    <size=90%><b>SPECIAL
+    THANKS</b>
+
+    Our Playtesters, Coffee, and You!</size>
+
+    </align>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 916439b188e902a4a8821379946cdadf, type: 2}
   m_sharedMaterial: {fileID: 3058268102827501291, guid: 916439b188e902a4a8821379946cdadf, type: 2}
@@ -810,7 +869,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &332068877

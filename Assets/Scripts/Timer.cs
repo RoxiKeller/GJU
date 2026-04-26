@@ -29,6 +29,8 @@ public class Timer : MonoBehaviour
 
     private bool isGameWon = false; // Add this flag at the top
     private bool isIntroAnnounced = false;
+    private float helpTimer = 0f;
+    private bool isHecticPhase = false; // Add this variable at the top
 
     void Awake()
     {
@@ -41,8 +43,6 @@ public class Timer : MonoBehaviour
         if (winPanel != null) winPanel.SetActive(false);
         
     }
-
-    private bool isHecticPhase = false; // Add this variable at the top
 
     void Update()
     {
@@ -75,32 +75,34 @@ public class Timer : MonoBehaviour
         HandleProgression();
     }
 
+    
+
     void HandleProgression()
     {
         if (timeRemaining <= totalLevelTime && !isIntroAnnounced)
     {
         isIntroAnnounced = true; // Set to true so it never runs again
-        AnnouncementUI.Instance.Display("Keep up the illusion that the king is still alive! Act normal!");
+        AnnouncementUI.Instance.Display("The King is dead. Don't let them find out. ACT NORMAL.");
     }
         // 1. DOG (First New Threat)
         if (timeRemaining <= dogStartTime && dogScript != null && !dogScript.enabled)
         {
             dogScript.enabled = true; 
-            AnnouncementUI.Instance.Display("Your dog is blowing your cover! Distract him!");
+            AnnouncementUI.Instance.Display("Your dog is blowing your cover! Distract it!");
         }
 
         // 2. STORYTELLERS (Second Threat)
         if (timeRemaining <= storytellerStartTime && storytellerScript != null && !storytellerScript.enabled)
         {
             storytellerScript.enabled = true;
-            AnnouncementUI.Instance.Display("The peasants want to talk to the king! Drag mask to king to equip, left click to unequip");
+            AnnouncementUI.Instance.Display("Peasants are approaching! Drag mask to king to equip, left click king to unequip");
         }
 
         // 3. WIND (Final Major Threat)
         if (timeRemaining <= windStartTime && windScript != null && !windScript.enabled)
         {
             windScript.enabled = true;
-            AnnouncementUI.Instance.Display("The wind is tilting the cardboard king! Resist by trying to hit the green zone with Space!");
+            AnnouncementUI.Instance.Display("The wind is blowing! Use SPACE to keep the King upright!");
         }
     }
 
