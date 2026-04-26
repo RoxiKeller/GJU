@@ -39,8 +39,8 @@ public class Dog : NPC
             nextInspectionTimer -= Time.deltaTime;
             if (nextInspectionTimer <= 0) 
             {
-                StartInspection("Sniff sniff...");
-                AudioManager.instance.PlaySound(AudioManager.instance.Bark1);
+                StartInspection("I smell my owner!");
+                AudioManager.instance.PlaySound(AudioManager.instance.Bark1, 0.5f);
             }
         }
     }
@@ -76,8 +76,8 @@ public class Dog : NPC
     protected override void OnSuspicionThresholdReached()
     {
         base.OnSuspicionThresholdReached(); // Sets currentReason = "Angry"
-        AudioManager.instance.PlaySound(AudioManager.instance.Dog_grrr);
-        Say("GRRRR! BARK!");
+        AudioManager.instance.PlaySound(AudioManager.instance.Dog_grrr, 0.5f);
+        Say("Notice me!");
     }
 
     public void Distract()
@@ -87,7 +87,7 @@ public class Dog : NPC
         distracted = true;
         isInspecting = false;
         // currentInspectionTimer resets to 0 automatically in next base.Update() call
-        AudioManager.instance.PlaySound(AudioManager.instance.Bark2);
+        AudioManager.instance.PlaySound(AudioManager.instance.Bark2, 0.5f);
         Say("Bork! MEAT!");
         DetermineNextInspectionTime();
     }

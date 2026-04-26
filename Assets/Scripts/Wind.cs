@@ -6,8 +6,8 @@ public class Wind : MonoBehaviour
     public static Wind Instance;
 
     [Header("Wind Settings")]
-    public float minInterval = 3f;
-    public float maxInterval = 8f;
+    public float minInterval = 10f;
+    public float maxInterval = 15f;
 
     public float minForce = 10f;
     public float maxForce = 40f;
@@ -91,8 +91,8 @@ public class Wind : MonoBehaviour
 
     void SetNextWind()
     {
-        float mult = SuspicionSystem.Instance.currentDifficultyMult;
-        timer = UnityEngine.Random.Range(minInterval, maxInterval) / mult;
+        // Remove the 'mult' division to keep frequency consistent
+        timer = UnityEngine.Random.Range(minInterval, maxInterval);
     }
 
     // Add this inside the Wind class

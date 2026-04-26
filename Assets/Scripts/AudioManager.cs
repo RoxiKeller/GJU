@@ -72,10 +72,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip, float volumeMultiplier = 1f)
     {
         if (clip != null) {
-            sfxSource.PlayOneShot(clip);
+            sfxSource.PlayOneShot(clip, volumeMultiplier);
         } else {
             Debug.LogWarning("Ai uitat să bagi clipul audio, patroane!");
         }

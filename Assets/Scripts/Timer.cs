@@ -80,7 +80,7 @@ public class Timer : MonoBehaviour
         if (timeRemaining <= totalLevelTime && !isIntroAnnounced)
     {
         isIntroAnnounced = true; // Set to true so it never runs again
-        AnnouncementUI.Instance.Display("Keep up the illusion that the king is still alive! Don't be sus!");
+        AnnouncementUI.Instance.Display("Keep up the illusion that the king is still alive! Act normal!");
     }
         // 1. DOG (First New Threat)
         if (timeRemaining <= dogStartTime && dogScript != null && !dogScript.enabled)
@@ -108,14 +108,6 @@ public class Timer : MonoBehaviour
     {
         isHecticPhase = true;
         timeText.color = Color.red;
-        
-        // Set wind to be super aggressive once
-        if (Wind.Instance != null)
-        {
-            Wind.Instance.minInterval = 1f;
-            Wind.Instance.maxInterval = 3f;
-            Debug.Log("FINAL STRETCH: Wind intensity increased!");
-        }
     }
     void DisplayTime(float timeToDisplay)
     {

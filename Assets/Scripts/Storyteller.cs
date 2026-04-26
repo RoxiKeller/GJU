@@ -130,13 +130,13 @@ public class Storyteller : NPC
             // Check if the mask is wrong
             if (faceSlot.currentlyEquippedMask != currentStory.requiredMask)
             {
-                farewell = "You don't seem to care at all!";
+                farewell = "How rude!";
                 SuspicionSystem.Instance.AddSuspicion(15f); 
             }
             // Check if the mask is correct
             else
             {
-                farewell = "Ah, your Majesty truly understands me!";
+                farewell = "Thank you, my king!";
                 SuspicionSystem.Instance.ReduceSuspicion(10f);
             }
         }

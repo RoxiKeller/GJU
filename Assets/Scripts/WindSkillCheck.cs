@@ -60,34 +60,41 @@ public class WindSkillCheck : MonoBehaviour
     void RandomizePerfectZone()
     {
         float areaHalfWidth = playArea.rect.width / 2f;
-        float zoneHalfWidth = perfectZone.rect.width / 2f;
+        
+        // --- NEW DYNAMIC SCALING ---
+        float mult = SuspicionSystem.Instance.currentDifficultyMult;
+
+        // Shrink the zone: At mult 1.0, scale is 1.0. At mult 2.0, scale is 0.5.
+        // We use 1f / mult to ensure it gets smaller as difficulty goes up.
+        float scaleFactor = Mathf.Clamp(1f / mult, 0.4f, 1f); 
+        perfectZone.localScale = new Vector3(scaleFactor, 1, 1);
+
+        // After scaling, we must re-calculate half width for positioning
+        float zoneHalfWidth = (perfectZone.rect.width * scaleFactor) / 2f;
 
         float minX = -areaHalfWidth + zoneHalfWidth;
         float maxX = areaHalfWidth - zoneHalfWidth;
-
         float randomX = Random.Range(minX, maxX);
-
-        // Shrink the zone based on difficulty (e.g., up to 50% smaller)
-        float mult = SuspicionSystem.Instance.currentDifficultyMult;
-        float scaleFactor = Mathf.Clamp(1.5f - (mult * 0.5f), 0.5f, 1f); 
-        perfectZone.localScale = new Vector3(scaleFactor, 1, 1);
 
         Vector2 pos = perfectZone.anchoredPosition;
         pos.x = randomX;
-
         perfectZone.anchoredPosition = pos;
     }
 
     void MovePointer()
     {
-        float step = speed * Time.deltaTime * 200f;
+        // --- NEW DYNAMIC SPEED ---
+        float mult = SuspicionSystem.Instance.currentDifficultyMult;
+        
+        // Base speed is multiplied by the difficulty
+        // If base speed is 2, at peak difficulty it becomes 4 or more.
+        float dynamicSpeed = speed * mult;
+
+        float step = dynamicSpeed * Time.deltaTime * 200f;
 
         Vector2 pos = pointer.anchoredPosition;
-
-        if (movingRight)
-            pos.x += step;
-        else
-            pos.x -= step;
+        if (movingRight) pos.x += step;
+        else pos.x -= step;
 
         float areaHalfWidth = playArea.rect.width / 2f;
         float pointerHalfWidth = pointer.rect.width / 2f;
