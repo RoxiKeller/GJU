@@ -16,10 +16,19 @@ public class WinUI : MonoBehaviour
         Time.timeScale = 1f; 
     }
 
-    public void ShowLoseScreen()
+    public void ShowWinScreen()
     {
         if (winPanel != null) winPanel.SetActive(true);
-        Time.timeScale = 0f; 
+
+        // Switch to Victory Music
+        if (AudioManager.instance != null)
+        {
+            // Stop gameplay, Start victory
+            AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
+            AudioManager.instance.ToggleLoop(AudioManager.instance.CK_victory, true);
+        }
+
+        Time.timeScale = 0f; // Pause the world
     }
 
     public void RestartGame()
@@ -32,25 +41,22 @@ public class WinUI : MonoBehaviour
     // --- NEW MAIN MENU LOGIC ---
     public void GoToMainMenu()
     {
-        // 1. IMPORTANT: Unfreeze the engine
         Time.timeScale = 1f;
-
-        // 2. Load the menu scene
-        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_victory, false); // Stop victory
         SceneManager.LoadScene(mainMenuSceneName);
-        
     }
 
     public void ShowCredits()
     {
-        // 1. Unfreeze time
         Time.timeScale = 1f;
-
-        // 2. Set the "secret flag" in the Menu Controller
         MainMenuController.shouldOpenCreditsOnLoad = true;
 
-        // 3. Clean up audio and load
-        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
+        if (AudioManager.instance != null)
+        {
+            // Stop the Victory music specifically before leaving
+            AudioManager.instance.ToggleLoop(AudioManager.instance.CK_victory, false);
+        }
+
         SceneManager.LoadScene(mainMenuSceneName);
     }
 }

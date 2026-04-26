@@ -19,13 +19,25 @@ public class LoseUI : MonoBehaviour
     public void ShowLoseScreen()
     {
         if (losePanel != null) losePanel.SetActive(true);
+        
+        // Switch the music!
+        if (AudioManager.instance != null)
+        {
+            // false on gameplay to stop it, then true on failure to start it
+            AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
+            AudioManager.instance.ToggleLoop(AudioManager.instance.CK_failure, true);
+        }
+
         Time.timeScale = 0f; 
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        // Stop BOTH just in case
         AudioManager.instance.ToggleLoop(AudioManager.instance.CK_gameplay, false);
+        AudioManager.instance.ToggleLoop(AudioManager.instance.CK_failure, false); 
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -47,7 +47,7 @@ public class SuspicionSystem : MonoBehaviour
         if (suspicion >= maxSuspicion && !isGameOver)
         {
             isGameOver = true;
-            LoseUI.Instance.ShowLoseScreen();
+            GameOver(); // Use the GameOver function instead of calling LoseUI directly
         }
     }
 
@@ -79,18 +79,20 @@ public class SuspicionSystem : MonoBehaviour
 
     public void AddSuspicion(float amount)
     {
+        // IF THE GAME IS OVER, STOP RUNNING THIS LOGIC IMMEDIATELY
+        if (isGameOver) return; 
+
         suspicion += amount;
         suspicion = Mathf.Clamp(suspicion, 0f, maxSuspicion);
 
         OnSuspicionChanged?.Invoke(suspicion);
 
-        // Trigger the UI popup
         if (SuspicionFeedback.Instance != null) 
             SuspicionFeedback.Instance.ShowChange(amount);
 
         if (suspicion >= maxSuspicion)
         {
-            GameOver();
+            GameOver(); // This will now only be called once
         }
     }
 
@@ -108,22 +110,22 @@ public class SuspicionSystem : MonoBehaviour
 
     void GameOver()
     {
+        if (isGameOver) return; // double-check lock
+        
+        isGameOver = true; 
         Debug.Log("👑 THE LIE HAS BEEN EXPOSED");
 
+        // Change King color
         if (king != null)
         {
             SpriteRenderer sr = king.GetComponent<SpriteRenderer>();
             if (sr != null) sr.color = Color.red;
         }
 
-        // Call the Singleton directly
+        // Trigger UI and Music
         if (LoseUI.Instance != null)
         {
             LoseUI.Instance.ShowLoseScreen();
-        }
-        else
-        {
-            Debug.LogError("LoseUI Instance is null! Is the script on an object in the scene?");
         }
     }
 }

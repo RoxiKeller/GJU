@@ -18,6 +18,11 @@ public class MainMenuController : MonoBehaviour
     
     void Start()
     {
+        // Ensure music is playing even if we skip straight to credits
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ToggleLoop(AudioManager.instance.CK_menu, true);
+        }
         settingsPanel.SetActive(false);
         // Check if we came here from the Win Screen
         if (shouldOpenCreditsOnLoad)

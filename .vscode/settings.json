@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "GJU.slnx",
+    "dotnet.defaultSolution": "CardboardKing.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }

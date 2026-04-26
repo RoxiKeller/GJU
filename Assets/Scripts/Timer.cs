@@ -27,6 +27,9 @@ public class Timer : MonoBehaviour
     public Dog dogScript; // Or whatever your Dog script is named
     public Storyteller storytellerScript;
 
+    private bool isGameWon = false; // Add this flag at the top
+    private bool isIntroAnnounced = false;
+
     void Awake()
     {
         Instance = this;
@@ -49,8 +52,7 @@ public class Timer : MonoBehaviour
             {
                 timeRemaining -= Time.deltaTime;
                 DisplayTime(timeRemaining);
-                
-                // Check for the 30-second mark
+
                 if (timeRemaining < 30f && !isHecticPhase)
                 {
                     TriggerHecticPhase();
@@ -60,8 +62,13 @@ public class Timer : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
-                AudioManager.instance.PlaySound(AudioManager.instance.Alarm);
-                WinGame();
+
+                // ONLY call WinGame if we haven't already
+                if (!isGameWon)
+                {
+                    isGameWon = true; 
+                    WinGame();
+                }
             }
         }
 
@@ -70,6 +77,11 @@ public class Timer : MonoBehaviour
 
     void HandleProgression()
     {
+        if (timeRemaining <= totalLevelTime && !isIntroAnnounced)
+    {
+        isIntroAnnounced = true; // Set to true so it never runs again
+        AnnouncementUI.Instance.Display("Keep up the illusion that the king is still alive! Don't be sus!");
+    }
         // 1. DOG (First New Threat)
         if (timeRemaining <= dogStartTime && dogScript != null && !dogScript.enabled)
         {
@@ -115,13 +127,19 @@ public class Timer : MonoBehaviour
 
     void WinGame()
     {
-        // Stop all NPCs and gameplay logic
-        if (winPanel != null) winPanel.SetActive(true);
-        
-        // Disable the Dog, Storytellers, and Wind to let the player relax
-        Object.FindAnyObjectByType<NPC>()?.gameObject.SetActive(false);
-        Wind.Instance.gameObject.SetActive(false);
-
         Debug.Log("LEVEL COMPLETE");
+
+        // 1. Trigger the Visual UI via the WinUI Singleton
+        if (WinUI.Instance != null)
+        {
+            WinUI.Instance.ShowWinScreen();
+        }
+
+        // 2. Cleanup gameplay objects
+        Object.FindAnyObjectByType<NPC>()?.gameObject.SetActive(false);
+        if (Wind.Instance != null) Wind.Instance.gameObject.SetActive(false);
+        
+        // Play the alarm sting once
+       // AudioManager.instance.PlaySound(AudioManager.instance.Alarm);
     }
 }

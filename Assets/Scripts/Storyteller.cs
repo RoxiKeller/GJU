@@ -30,6 +30,9 @@ public class Storyteller : NPC
         base.Start();
         lastPosition = transform.position;
         ApplyRandomLook();
+        
+        // Give the player 5-10 seconds before the first storyteller actually arrives
+        nextArrivalTimer = Random.Range(minTimeBetweenStories, maxTimeBetweenStories);
     }
 
     protected override void Update()
@@ -111,23 +114,38 @@ public class Storyteller : NPC
 
     void FinishStory()
     {
+        // SAFETY: If for some reason we don't have a story, just leave quietly
+        if (currentStory == null)
+        {
+            EndInspection("...");
+            SetRandomArrivalTimer();
+            return;
+        }
+
         KingFaceSlot faceSlot = Object.FindAnyObjectByType<KingFaceSlot>();
         string farewell = "Thank you for listening.";
 
-        // Final check: If they leave and it's still wrong, big penalty!
-        if (faceSlot != null && faceSlot.currentlyEquippedMask != currentStory.requiredMask)
+        if (faceSlot != null)
         {
-            farewell = "You don't seem to care at all!";
-            SuspicionSystem.Instance.AddSuspicion(15f); 
-        }
-
-        if (faceSlot != null && faceSlot.currentlyEquippedMask == currentStory.requiredMask)
-        {
-            farewell = "Ah, your Majesty truly understands me!";
-            SuspicionSystem.Instance.ReduceSuspicion(10f); // Big reward for a job well done!
+            // Check if the mask is wrong
+            if (faceSlot.currentlyEquippedMask != currentStory.requiredMask)
+            {
+                farewell = "You don't seem to care at all!";
+                SuspicionSystem.Instance.AddSuspicion(15f); 
+            }
+            // Check if the mask is correct
+            else
+            {
+                farewell = "Ah, your Majesty truly understands me!";
+                SuspicionSystem.Instance.ReduceSuspicion(10f);
+            }
         }
 
         EndInspection(farewell);
+        
+        // Crucial: Clear the story so we don't accidentally use it again
+        currentStory = null; 
+        
         SetRandomArrivalTimer();
     }
 

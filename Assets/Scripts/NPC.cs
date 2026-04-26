@@ -8,7 +8,7 @@ public class NPC : MonoBehaviour
     public King king;
     public GameObject speechBubble;
     public TextMeshProUGUI dialogueText;
-    public float displayDuration = 3f;
+    public float displayDuration = 6f; // Changed from 3f to 6f
 
     [Header("Movement")]
     public Transform inspectionPoint;
@@ -187,15 +187,22 @@ public class NPC : MonoBehaviour
         if (dialogueCoroutine != null)
             StopCoroutine(dialogueCoroutine);
 
-        dialogueCoroutine = StartCoroutine(ShowText(message));
+        // Calculate duration: 2 seconds base + 0.05 seconds per character
+        // This ensures long stories stay on screen longer than short "Hmms"
+        float dynamicDuration = 2f + (message.Length * 0.05f);
+        
+        // Clamp it so it's never too short or too long
+        dynamicDuration = Mathf.Clamp(dynamicDuration, displayDuration, 10f);
+
+        dialogueCoroutine = StartCoroutine(ShowText(message, dynamicDuration));
     }
 
-    private IEnumerator ShowText(string message)
+    private IEnumerator ShowText(string message, float duration)
     {
         speechBubble.SetActive(true);
         dialogueText.text = message;
 
-        yield return new WaitForSeconds(displayDuration);
+        yield return new WaitForSeconds(duration);
 
         speechBubble.SetActive(false);
     }

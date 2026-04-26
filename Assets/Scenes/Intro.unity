@@ -1106,13 +1106,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 1849329793}
   musicSource: {fileID: 1849329792}
-  Blink: {fileID: 0}
+  Blink: {fileID: 8300000, guid: 2089392110d546d4185333205469a129, type: 3}
   Bark1: {fileID: 8300000, guid: 71286a29dcc3f6a43bf3a522ce26027a, type: 3}
   Bark2: {fileID: 8300000, guid: 81d0c29747899e14d9f3c8ab90233501, type: 3}
   Alarm: {fileID: 8300000, guid: 3ba30575c37ce5944949b7fb5a98aec1, type: 3}
   Bad_skill: {fileID: 8300000, guid: 3ea6065702d02614c95797e27db78cc2, type: 3}
   Good_skill: {fileID: 8300000, guid: 2efc2a06aa1e4184e90f66eba88fa195, type: 3}
   CK_intro: {fileID: 8300000, guid: 659ee7cc900227843b25c28bb24f7e46, type: 3}
+  CK_gameplay: {fileID: 8300000, guid: 8222a382a027ef847bb5ca9d2503adfc, type: 3}
   CK_victory: {fileID: 8300000, guid: 193afb5b5385c974fb731e9688f5b651, type: 3}
   CK_failure: {fileID: 8300000, guid: e9be22cc86cbbbe4e9e7ffd20b1ef33f, type: 3}
   Dog_eat: {fileID: 8300000, guid: 2a0b3231f085fd04b9e092b2231fbd4e, type: 3}
